@@ -24,16 +24,16 @@
                 // Ambil data yang dikirim dari kontroler
                 var chartData = {!! json_encode($chartData) !!};
                 // Fungsi untuk mengonversi nilai menjadi megabit per detik (Mbps)
-                function convertToGB1(value) {
+                function convertToGB(value) {
 
-                    var mbpsValue = value / 1000000000;
-                    return mbpsValue;
+                    var GBValue = value / 1000000000;
+                    return GBValue;
                 }
 
                 // Konversi nilai pada datasets menjadi megabit per detik (Mbps)
                 for (var i = 0; i < chartData.length; i++) {
                     for (var j = 0; j < chartData[i].data.length; j++) {
-                        chartData[i].data[j] = convertToGB1(chartData[i].data[j]);
+                        chartData[i].data[j] = convertToGB(chartData[i].data[j]);
                     }
                 }
 
@@ -114,7 +114,7 @@
 
                             for (var i = 0; i < response.length; i++) {
                                 myChart.data.datasets[i].data = response[i].values.reverse().map(function(value) {
-                                    return convertToGB1(value);
+                                    return convertToGB(value);
                                 });
                             }
 
@@ -127,7 +127,7 @@
                 updateChart();
 
                 // Perbarui grafik setiap 5 detik
-                setInterval(updateChart, 5000);
+                setInterval(updateChart, 15000);
             </script>
 
 
@@ -148,15 +148,15 @@
                 // Ambil data yang dikirim dari kontroler
                 var chartData1 = {!! json_encode($chartData1) !!};
                 // Fungsi untuk mengonversi nilai menjadi megabit per detik (Mbps)
-                function convertToPersen1(value) {
-                    var mbpsValue = value;
-                    return mbpsValue;
+                function convertToPercent(value) {
+                    var percentValue = value;
+                    return percentValue;
                 }
 
                 // Konversi nilai pada datasets menjadi megabit per detik (Mbps)
                 for (var i = 0; i < chartData1.length; i++) {
                     for (var j = 0; j < chartData1[i].data.length; j++) {
-                        chartData1[i].data[j] = convertToPersen1(chartData1[i].data[j]);
+                        chartData1[i].data[j] = convertToPercent(chartData1[i].data[j]);
                     }
                 }
 
@@ -237,7 +237,7 @@
 
                             for (var i = 0; i < response.length; i++) {
                                 myChart1.data.datasets[i].data = response[i].values.reverse().map(function(value) {
-                                    return convertToPersen1(value);
+                                    return convertToPercent(value);
                                 });
                             }
 
@@ -250,7 +250,7 @@
                 updateChart();
 
                 // Perbarui grafik setiap 5 detik
-                setInterval(updateChart, 5000);
+                setInterval(updateChart, 15000);
             </script>
 
             {{-- •	Disk Space Usage (QAD Server)   --}}
@@ -315,16 +315,16 @@
                 // Ambil data yang dikirim dari kontroler
                 var chartData3 = {!! json_encode($chartData3) !!};
                 // Fungsi untuk mengonversi nilai menjadi megabit per detik (Mbps)
-                function convertToPersen2(value) {
+                function convertToPercent(value) {
 
-                    var mbpsValue = value;
-                    return mbpsValue;
+                    var percentValue = value;
+                    return percentValue;
                 }
 
                 // Konversi nilai pada datasets menjadi megabit per detik (Mbps)
                 for (var i = 0; i < chartData3.length; i++) {
                     for (var j = 0; j < chartData3[i].data.length; j++) {
-                        chartData3[i].data[j] = convertToPersen2(chartData3[i].data[j]);
+                        chartData3[i].data[j] = convertToPercent(chartData3[i].data[j]);
                     }
                 }
 
@@ -405,7 +405,7 @@
 
                             for (var i = 0; i < response.length; i++) {
                                 myChart3.data.datasets[i].data = response[i].values.reverse().map(function(value) {
-                                    return convertToPersen2(value);
+                                    return convertToPercent(value);
                                 });
                             }
 
@@ -418,7 +418,7 @@
                 updateChart();
 
                 // Perbarui grafik setiap 5 detik
-                setInterval(updateChart, 5000);
+                setInterval(updateChart, 15000);
             </script>
 
 
@@ -441,16 +441,16 @@
                 // Ambil data yang dikirim dari kontroler
                 var chartData4 = {!! json_encode($chartData4) !!};
                 // Fungsi untuk mengonversi nilai menjadi megabit per detik (Mbps)
-                function convertToPersen3(value) {
+                function convertToPercent(value) {
 
-                    var mbpsValue = value;
-                    return mbpsValue;
+                    var percentValue = value;
+                    return percentValue;
                 }
 
                 // Konversi nilai pada datasets menjadi megabit per detik (Mbps)
                 for (var i = 0; i < chartData1.length; i++) {
                     for (var j = 0; j < chartData4[i].data.length; j++) {
-                        chartData4[i].data[j] = convertToPersen3(chartData4[i].data[j]);
+                        chartData4[i].data[j] = convertToPercent(chartData4[i].data[j]);
                     }
                 }
 
@@ -531,7 +531,7 @@
 
                             for (var i = 0; i < response.length; i++) {
                                 myChart4.data.datasets[i].data = response[i].values.reverse().map(function(value) {
-                                    return convertToPersen3(value);
+                                    return convertToPercent(value);
                                 });
                             }
 
@@ -544,7 +544,7 @@
                 updateChart();
 
                 // Perbarui grafik setiap 5 detik
-                setInterval(updateChart, 5000);
+                setInterval(updateChart, 15000);
             </script>
 
 

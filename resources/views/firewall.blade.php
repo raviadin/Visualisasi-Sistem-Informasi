@@ -26,7 +26,7 @@
                 var chartData = {!! json_encode($chartData) !!};
 
                 // Fungsi untuk mengonversi nilai menjadi megabit per detik (Mbps)
-                function convertToPersen1(value) {
+                function convertToPercent(value) {
                     var mbpsValue = value;
                     return mbpsValue;
                 }
@@ -34,7 +34,7 @@
                 // Konversi nilai pada datasets menjadi megabit per detik (Mbps)
                 for (var i = 0; i < chartData.length; i++) {
                     for (var j = 0; j < chartData[i].data.length; j++) {
-                        chartData[i].data[j] = convertToPersen1(chartData[i].data[j]);
+                        chartData[i].data[j] = convertToPercent(chartData[i].data[j]);
                     }
                 }
 
@@ -117,7 +117,7 @@
 
                             for (var i = 0; i < response.length; i++) {
                                 myChart.data.datasets[i].data = response[i].values.reverse().map(function(value) {
-                                    return convertToPersen1(value);
+                                    return convertToPercent(value);
                                 });
                             }
 
@@ -130,7 +130,7 @@
                 updateChart();
 
                 // Perbarui grafik setiap 5 detik
-                setInterval(updateChart, 5000);
+                setInterval(updateChart, 15000);
             </script>
 
             {{-- CurrentCPUUtil (Firewall)   --}}
@@ -151,7 +151,7 @@
                 var chartData1 = {!! json_encode($chartData1) !!};
 
                 // Fungsi untuk mengonversi nilai menjadi megabit per detik (Mbps)
-                function convertToPersen2(value) {
+                function convertToPercent(value) {
 
                     var mbpsValue = value;
                     return mbpsValue;
@@ -161,7 +161,7 @@
                 // Konversi nilai pada datasets menjadi megabit per detik (Mbps)
                 for (var i = 0; i < chartData1.length; i++) {
                     for (var j = 0; j < chartData1[i].data.length; j++) {
-                        chartData1[i].data[j] = convertToPersen2(chartData1[i].data[j]);
+                        chartData1[i].data[j] = convertToPercent(chartData1[i].data[j]);
                     }
                 }
 
@@ -244,7 +244,7 @@
 
                             for (var i = 0; i < response.length; i++) {
                                 myChart1.data.datasets[i].data = response[i].values.reverse().map(function(value) {
-                                    return convertToPersen2(value);
+                                    return convertToPercent(value);
                                 });
                             }
 
@@ -257,7 +257,7 @@
                 updateChart();
 
                 // Perbarui grafik setiap 5 detik
-                setInterval(updateChart, 5000);
+                setInterval(updateChart, 15000);
             </script>
 
 
@@ -281,8 +281,8 @@
                 // Fungsi untuk mengonversi nilai menjadi megabit per detik (Ms)
                 function convertToMbps(value) {
 
-                    var msValue = value / 1000000;
-                    return msValue;
+                    var mbpsValue = value / 1000000;
+                    return mbpsValue;
 
                 }
 
@@ -385,7 +385,7 @@
                 updateChart();
 
                 // Perbarui grafik setiap 5 detik
-                setInterval(updateChart, 5000);
+                setInterval(updateChart, 15000);
             </script>
 
             {{-- Network Traffic Linknet (Firewall)  --}}
@@ -406,17 +406,17 @@
                 var chartData3 = {!! json_encode($chartData3) !!};
 
                 // Fungsi untuk mengonversi nilai menjadi megabit per detik (Ms)
-                function convertToMbps2(value) {
+                function convertToMbps(value) {
 
-                    var msValue = value / 100000;
-                    return msValue;
+                    var mbpsValue = value / 1000000; 
+                    return mbpsValue;
 
                 }
 
                 // Konversi nilai pada datasets menjadi megabit per detik (Ms)
                 for (var i = 0; i < chartData3.length; i++) {
                     for (var j = 0; j < chartData3[i].data.length; j++) {
-                        chartData3[i].data[j] = convertToMbps2(chartData3[i].data[j]);
+                        chartData3[i].data[j] = convertToMbps(chartData3[i].data[j]);
                     }
                 }
 
@@ -499,7 +499,7 @@
 
                             for (var i = 0; i < response.length; i++) {
                                 myChart3.data.datasets[i].data = response[i].values.reverse().map(function(value) {
-                                    return convertToMbps2(value);
+                                    return convertToMbps(value);
                                 });
                             }
 
@@ -512,7 +512,7 @@
                 updateChart();
 
                 // Perbarui grafik setiap 5 detik
-                setInterval(updateChart, 5000);
+                setInterval(updateChart, 15000);
             </script>
         </div>
     </div>

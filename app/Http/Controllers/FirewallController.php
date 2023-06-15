@@ -26,7 +26,6 @@ class FirewallController extends Controller
                 'filter' => [
                     'itemid' => '53204', // Ganti dengan item ID yang sesuai
                 ],
-                'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -87,7 +86,6 @@ class FirewallController extends Controller
                 'filter' => [
                     'itemid' => '53203', // Ganti dengan item ID yang sesuai
                 ],
-                'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -148,7 +146,6 @@ class FirewallController extends Controller
                 'filter' => [
                     'itemid' => ['53452', '53562'], // Ganti dengan item ID yang sesuai
                 ],
-                'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -208,7 +205,6 @@ class FirewallController extends Controller
                 'filter' => [
                     'itemid' => ['53453', '53563'], // Ganti dengan item ID yang sesuai
                 ],
-                'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -265,7 +261,7 @@ class FirewallController extends Controller
         $url = env('ZABBIX_API_URL');
         $token = env('ZABBIX_API_TOKEN');
 
-        // Network Traffic Cyberplus (Firewall)
+        // CurrentRAMUsage
         $itemRes = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -276,7 +272,6 @@ class FirewallController extends Controller
                 'filter' => [
                     'itemid' => '53204', // Ganti dengan item ID yang sesuai
                 ],
-                // 'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -299,7 +294,6 @@ class FirewallController extends Controller
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'history' => 0,
-                // 'limit' => 30,
                 'time_from' => $oneHourAgo,
                 'time_till' => $currentTime,
             ],
@@ -347,7 +341,7 @@ class FirewallController extends Controller
         $url = env('ZABBIX_API_URL');
         $token = env('ZABBIX_API_TOKEN');
 
-        // Network Traffic Cyberplus (Firewall)
+        // CurrentCPUUtil
         $itemRes = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -358,7 +352,6 @@ class FirewallController extends Controller
                 'filter' => [
                     'itemid' => '53203', // Ganti dengan item ID yang sesuai
                 ],
-                // 'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -381,7 +374,6 @@ class FirewallController extends Controller
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'history' => 0,
-                // 'limit' => 30,
                 'time_from' => $oneHourAgo,
                 'time_till' => $currentTime,
             ],

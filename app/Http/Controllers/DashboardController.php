@@ -13,9 +13,9 @@ class DashboardController extends Controller
         $token = env('ZABBIX_API_TOKEN');
 
         $currentTime = time();
-        $oneHourAgo = $currentTime - (1 * 60 * 60); // 1 jam sebelumnya
+        $oneHourAgo = $currentTime - 1 * 60 * 60; // 1 jam sebelumnya
 
-        //•	Network Traffic Cyberplus (Firewall) 
+        //•	Network Traffic Cyberplus (Firewall)
         $itemResponse = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -26,7 +26,6 @@ class DashboardController extends Controller
                 'filter' => [
                     'itemid' => ['53452', '53562'], // Ganti dengan item ID yang sesuai
                 ],
-                'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -43,7 +42,7 @@ class DashboardController extends Controller
             'method' => 'history.get',
             'params' => [
                 'output' => 'extend',
-                "itemids" =>  $itemIds,
+                'itemids' => $itemIds,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -55,7 +54,7 @@ class DashboardController extends Controller
 
         $historyData = $historyResponse->json();
 
-        $data =  [
+        $data = [
             'items' => $itemData['result'],
             'history' => $historyData['result'],
         ];
@@ -74,8 +73,7 @@ class DashboardController extends Controller
             ];
         }
 
-
-        //•	Network Traffic Linknet (Firewall) 
+        //•	Network Traffic Linknet (Firewall)
         $itemResponse1 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -84,9 +82,8 @@ class DashboardController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' =>  ['53453', '53563'], // Ganti dengan item ID yang sesuai
+                    'itemid' => ['53453', '53563'], // Ganti dengan item ID yang sesuai
                 ],
-                'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -103,7 +100,7 @@ class DashboardController extends Controller
             'method' => 'history.get',
             'params' => [
                 'output' => 'extend',
-                "itemids" =>  $itemIds1,
+                'itemids' => $itemIds1,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -115,7 +112,7 @@ class DashboardController extends Controller
 
         $historyData1 = $historyResponse1->json();
 
-        $data =  [
+        $data1 = [
             'items' => $itemData1['result'],
             'history' => $historyData1['result'],
         ];
@@ -134,8 +131,7 @@ class DashboardController extends Controller
             ];
         }
 
-
-        //• Ping	Gateway Traffic Cyberplus (Firewall) 
+        //• Ping Gateway ISP Cyberplus
         $itemResponse2 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -144,9 +140,8 @@ class DashboardController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' =>  '72750', // Ganti dengan item ID yang sesuai
+                    'itemid' => '72750', // Ganti dengan item ID yang sesuai
                 ],
-                'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -163,8 +158,8 @@ class DashboardController extends Controller
             'method' => 'history.get',
             'params' => [
                 'output' => 'extend',
-                "itemids" =>  $itemIds2,
-                "history" => 0,
+                'itemids' => $itemIds2,
+                'history' => 0,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -176,7 +171,7 @@ class DashboardController extends Controller
 
         $historyData2 = $historyResponse2->json();
 
-        $data4 =  [
+        $data2 = [
             'items' => $itemData2['result'],
             'history' => $historyData2['result'],
         ];
@@ -195,8 +190,7 @@ class DashboardController extends Controller
             ];
         }
 
-
-        //• Ping	Gateway Traffic Linknet (Firewall) 
+        //• Ping Gateway ISP Linknet
         $itemResponse3 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -205,9 +199,8 @@ class DashboardController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' =>  '72753', // Ganti dengan item ID yang sesuai
+                    'itemid' => '72753', // Ganti dengan item ID yang sesuai
                 ],
-                'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -224,8 +217,8 @@ class DashboardController extends Controller
             'method' => 'history.get',
             'params' => [
                 'output' => 'extend',
-                "itemids" =>  $itemIds3,
-                "history" => 0,
+                'itemids' => $itemIds3,
+                'history' => 0,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -237,7 +230,7 @@ class DashboardController extends Controller
 
         $historyData3 = $historyResponse3->json();
 
-        $data3 =  [
+        $data3 = [
             'items' => $itemData3['result'],
             'history' => $historyData3['result'],
         ];
@@ -256,9 +249,7 @@ class DashboardController extends Controller
             ];
         }
 
-
-
-        //• Ping	Gateway Traffic Cyberplus Loss 
+        //• Ping Loss Gateway Traffic Cyberplus Loss
         $itemResponse4 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -267,9 +258,8 @@ class DashboardController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' =>  '72748', // Ganti dengan item ID yang sesuai
-                ],
-                'limit' => 10,
+                    'itemid' => '72748', // Ganti dengan item ID yang sesuai
+                ]
             ],
             'auth' => $token,
             'id' => 1,
@@ -286,8 +276,8 @@ class DashboardController extends Controller
             'method' => 'history.get',
             'params' => [
                 'output' => 'extend',
-                "itemids" =>  $itemIds4,
-                "history" => 0,
+                'itemids' => $itemIds4,
+                'history' => 0,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -299,7 +289,7 @@ class DashboardController extends Controller
 
         $historyData4 = $historyResponse4->json();
 
-        $data4 =  [
+        $data4 = [
             'items' => $itemData4['result'],
             'history' => $historyData4['result'],
         ];
@@ -318,8 +308,7 @@ class DashboardController extends Controller
             ];
         }
 
-
-        //• Ping Gateway Traffic Linknet Loss 
+        //• Ping Loss Gateway Traffic Linknet Loss
         $itemResponse5 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -328,9 +317,8 @@ class DashboardController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' =>  '72751', // Ganti dengan item ID yang sesuai
+                    'itemid' => '72751', // Ganti dengan item ID yang sesuai
                 ],
-                'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -347,8 +335,8 @@ class DashboardController extends Controller
             'method' => 'history.get',
             'params' => [
                 'output' => 'extend',
-                "itemids" =>  $itemIds5,
-                "history" => 0,
+                'itemids' => $itemIds5,
+                'history' => 0,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -360,7 +348,7 @@ class DashboardController extends Controller
 
         $historyData5 = $historyResponse5->json();
 
-        $data5 =  [
+        $data5 = [
             'items' => $itemData5['result'],
             'history' => $historyData5['result'],
         ];
@@ -379,10 +367,7 @@ class DashboardController extends Controller
             ];
         }
 
-
-
-
-        //••	Ping 8.8.8.8 
+        //•	Ping 8.8.8.8
         $itemResponse6 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -391,9 +376,8 @@ class DashboardController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' =>  '68862', // Ganti dengan item ID yang sesuai
+                    'itemid' => '68862', // Ganti dengan item ID yang sesuai
                 ],
-                'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -410,8 +394,8 @@ class DashboardController extends Controller
             'method' => 'history.get',
             'params' => [
                 'output' => 'extend',
-                "itemids" =>  $itemIds6,
-                "history" => 0,
+                'itemids' => $itemIds6,
+                'history' => 0,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -423,7 +407,7 @@ class DashboardController extends Controller
 
         $historyData6 = $historyResponse6->json();
 
-        $data6 =  [
+        $data6 = [
             'items' => $itemData6['result'],
             'history' => $historyData6['result'],
         ];
@@ -442,8 +426,7 @@ class DashboardController extends Controller
             ];
         }
 
-
-        //• Ping detik.com 
+        //• Ping detik.com
         $itemResponse7 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -452,9 +435,8 @@ class DashboardController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' =>  '73130', // Ganti dengan item ID yang sesuai
+                    'itemid' => '73130', // Ganti dengan item ID yang sesuai
                 ],
-                'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -471,8 +453,8 @@ class DashboardController extends Controller
             'method' => 'history.get',
             'params' => [
                 'output' => 'extend',
-                "itemids" =>  $itemIds7,
-                "history" => 0,
+                'itemids' => $itemIds7,
+                'history' => 0,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -484,7 +466,7 @@ class DashboardController extends Controller
 
         $historyData7 = $historyResponse7->json();
 
-        $data7 =  [
+        $data7 = [
             'items' => $itemData7['result'],
             'history' => $historyData7['result'],
         ];
@@ -503,7 +485,6 @@ class DashboardController extends Controller
             ];
         }
 
-
         //•	Ping teams.microsoft.com
         $itemResponse8 = Http::withOptions([
             'timeout' => 60,
@@ -513,9 +494,8 @@ class DashboardController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' =>  '73149', // Ganti dengan item ID yang sesuai
+                    'itemid' => '73149', // Ganti dengan item ID yang sesuai
                 ],
-                'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -532,8 +512,8 @@ class DashboardController extends Controller
             'method' => 'history.get',
             'params' => [
                 'output' => 'extend',
-                "itemids" =>  $itemIds8,
-                "history" => 0,
+                'itemids' => $itemIds8,
+                'history' => 0,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -545,7 +525,7 @@ class DashboardController extends Controller
 
         $historyData8 = $historyResponse8->json();
 
-        $data8 =  [
+        $data8 = [
             'items' => $itemData8['result'],
             'history' => $historyData8['result'],
         ];
@@ -564,8 +544,7 @@ class DashboardController extends Controller
             ];
         }
 
-
-        //•	•	Memory Usage 
+        //•	Memory Usage QAD Server
         $itemResponse9 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -574,9 +553,8 @@ class DashboardController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' =>  ['54160', '54195'], // Ganti dengan item ID yang sesuai
+                    'itemid' => ['54160', '54195'], // Ganti dengan item ID yang sesuai
                 ],
-                'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -593,7 +571,7 @@ class DashboardController extends Controller
             'method' => 'history.get',
             'params' => [
                 'output' => 'extend',
-                "itemids" =>  $itemIds9,
+                'itemids' => $itemIds9,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -605,7 +583,7 @@ class DashboardController extends Controller
 
         $historyData9 = $historyResponse9->json();
 
-        $data9 =  [
+        $data9 = [
             'items' => $itemData9['result'],
             'history' => $historyData9['result'],
         ];
@@ -624,8 +602,7 @@ class DashboardController extends Controller
             ];
         }
 
-
-        //•	CPU Utilization  
+        //•	CPU Utilization QAD Server
         $itemResponse10 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -634,9 +611,8 @@ class DashboardController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' =>  '54200', // Ganti dengan item ID yang sesuai
+                    'itemid' => '54200', // Ganti dengan item ID yang sesuai
                 ],
-                'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -653,7 +629,7 @@ class DashboardController extends Controller
             'method' => 'history.get',
             'params' => [
                 'output' => 'extend',
-                "itemids" =>  $itemIds10,
+                'itemids' => $itemIds10,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'history' => 0,
@@ -666,7 +642,7 @@ class DashboardController extends Controller
 
         $historyData10 = $historyResponse10->json();
 
-        $data10 =  [
+        $data10 = [
             'items' => $itemData10['result'],
             'history' => $historyData10['result'],
         ];
@@ -684,73 +660,9 @@ class DashboardController extends Controller
                 'data' => array_column($itemHistory, 'value'),
             ];
         }
-
-
-        // •	Disk Space Usage 
-        // URL dan token Zabbix API
-        // Panggil API Zabbix untuk mendapatkan data item
-        // $itemResponse11 = Http::withOptions([
-        //     'timeout' => 60,
-        // ])->post($url, [
-        //     'jsonrpc' => '2.0',
-        //     'method' => 'item.get',
-        //     'params' => [
-        //         'output' => 'extend',
-        //         'filter' => [
-        //             'itemid' => ['54244', '54248'],
-        //         ],
-        //         'limit' => 10,
-        //     ],
-        //     'auth' => $token,
-        //     'id' => 1,
-        // ]);
-
-        // $itemData11 = $itemResponse11->json();
-        // $itemIds11 = array_column($itemData11['result'], 'itemid');
-
-        // // Panggil API Zabbix untuk mendapatkan riwayat berdasarkan item ID
-        // $historyResponse11 = Http::withOptions([
-        //     'timeout' => 60,
-        // ])->post($url, [
-        //     'jsonrpc' => '2.0',
-        //     'method' => 'history.get',
-        //     'params' => [
-        //         'output' => 'extend',
-        //         'itemids' => $itemIds11,
-        //         'sortfield' => 'clock',
-        //         'sortorder' => 'DESC',
-        //         'time_from' => strtotime('-1 hour'),
-        //         'time_till' => time(),
-        //         'limit' => 2,
-        //     ],
-        //     'auth' => $token,
-        //     'id' => 1,
-        // ]);
-
-        // $historyData11 = $historyResponse11->json();
-
-        // $chartData11 = [];
-        // foreach ($itemData11['result'] as $item11) {
-        //     $itemId11 = $item11['itemid'];
-        //     $itemName11 = $item11['name'];
-        //     $itemHistory11 = array_filter($historyData11['result'], function ($history11) use ($itemId11) {
-        //         return $history11['itemid'] == $itemId11;
-        //     });
-        //     $dataItemHistory = array_column($itemHistory11, 'value');
-        //     $chartData11[] = [
-        //         $itemName11,
-        //         $dataItemHistory,
-        //     ];
-        // }
-
-
-
-
-        // dd($chartData11);
-
         return view('dashboard', compact('chartData', 'chartData1', 'chartData2', 'chartData3', 'chartData4', 'chartData5', 'chartData6', 'chartData7', 'chartData8', 'chartData9', 'chartData10'));
     }
-    
+
     public function NetworkTrafficCyberplus()
     {
         $url = env('ZABBIX_API_URL');
@@ -767,7 +679,6 @@ class DashboardController extends Controller
                 'filter' => [
                     'itemid' => ['53452', '53562'], // Ganti dengan item ID yang sesuai
                 ],
-                // 'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -778,7 +689,7 @@ class DashboardController extends Controller
 
         // Mengumpulkan riwayat berdasarkan item ID
         $currentTime = time();
-        $oneHourAgo = $currentTime - (1 * 60 * 60); // 1 jam sebelumnya
+        $oneHourAgo = $currentTime - 1 * 60 * 60; // 1 jam sebelumnya
         $historyResponse = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -789,7 +700,6 @@ class DashboardController extends Controller
                 'itemids' => $itemIds,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
-                // 'limit' => 30,
                 'time_from' => $oneHourAgo,
                 'time_till' => $currentTime,
             ],
@@ -802,7 +712,6 @@ class DashboardController extends Controller
         // Mengolah data untuk chart
         $chartDataa = [];
         foreach ($itemData['result'] as $item) {
-
             $itemId = $item['itemid'];
             $itemName = $item['name'];
 
@@ -825,7 +734,6 @@ class DashboardController extends Controller
                 'name' => $itemName,
                 'labels' => $labels,
                 'values' => $values,
-
             ];
         }
 
@@ -848,7 +756,6 @@ class DashboardController extends Controller
                 'filter' => [
                     'itemid' => ['53453', '53563'], // Ganti dengan item ID yang sesuai
                 ],
-                // 'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -859,7 +766,7 @@ class DashboardController extends Controller
 
         // Mengumpulkan riwayat berdasarkan item ID
         $currentTime = time();
-        $oneHourAgo = $currentTime - (1 * 60 * 60); // 1 jam sebelumnya
+        $oneHourAgo = $currentTime - 1 * 60 * 60; // 1 jam sebelumnya
         $historyResponse1 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -870,7 +777,6 @@ class DashboardController extends Controller
                 'itemids' => $itemIds1,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
-                // 'limit' => 30,
                 'time_from' => $oneHourAgo,
                 'time_till' => $currentTime,
             ],
@@ -883,7 +789,6 @@ class DashboardController extends Controller
         // Mengolah data untuk chart
         $chartDataa = [];
         foreach ($itemData1['result'] as $item) {
-
             $itemId1 = $item['itemid'];
             $itemName = $item['name'];
 
@@ -906,7 +811,6 @@ class DashboardController extends Controller
                 'name' => $itemName,
                 'labels' => $labels1,
                 'values' => $values1,
-
             ];
         }
 
@@ -918,7 +822,7 @@ class DashboardController extends Controller
         $url = env('ZABBIX_API_URL');
         $token = env('ZABBIX_API_TOKEN');
 
-        // Network Traffic Cyberplus (Firewall)
+        // PingGatewayISPCyberplus
         $itemRes1 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -929,7 +833,6 @@ class DashboardController extends Controller
                 'filter' => [
                     'itemid' => '72750', // Ganti dengan item ID yang sesuai
                 ],
-                // 'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -940,7 +843,7 @@ class DashboardController extends Controller
 
         // Mengumpulkan riwayat berdasarkan item ID
         $currentTime = time();
-        $oneHourAgo = $currentTime - (1 * 60 * 60); // 1 jam sebelumnya
+        $oneHourAgo = $currentTime - 1 * 60 * 60; // 1 jam sebelumnya
         $historyResponse1 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -951,7 +854,6 @@ class DashboardController extends Controller
                 'itemids' => $itemIds1,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
-                // 'limit' => 30,
                 'history' => 0,
                 'time_from' => $oneHourAgo,
                 'time_till' => $currentTime,
@@ -965,7 +867,6 @@ class DashboardController extends Controller
         // Mengolah data untuk chart
         $chartDataa = [];
         foreach ($itemData1['result'] as $item) {
-
             $itemId1 = $item['itemid'];
             $itemName = $item['name'];
 
@@ -988,7 +889,6 @@ class DashboardController extends Controller
                 'name' => $itemName,
                 'labels' => $labels1,
                 'values' => $values1,
-
             ];
         }
 
@@ -1011,7 +911,6 @@ class DashboardController extends Controller
                 'filter' => [
                     'itemid' => '72753', // Ganti dengan item ID yang sesuai
                 ],
-                // 'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -1022,7 +921,7 @@ class DashboardController extends Controller
 
         // Mengumpulkan riwayat berdasarkan item ID
         $currentTime = time();
-        $oneHourAgo = $currentTime - (1 * 60 * 60); // 1 jam sebelumnya
+        $oneHourAgo = $currentTime - 1 * 60 * 60; // 1 jam sebelumnya
         $historyResponse1 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -1033,7 +932,6 @@ class DashboardController extends Controller
                 'itemids' => $itemIds1,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
-                // 'limit' => 30,
                 'history' => 0,
                 'time_from' => $oneHourAgo,
                 'time_till' => $currentTime,
@@ -1047,7 +945,6 @@ class DashboardController extends Controller
         // Mengolah data untuk chart
         $chartDataa = [];
         foreach ($itemData1['result'] as $item) {
-
             $itemId1 = $item['itemid'];
             $itemName = $item['name'];
 
@@ -1070,7 +967,6 @@ class DashboardController extends Controller
                 'name' => $itemName,
                 'labels' => $labels1,
                 'values' => $values1,
-
             ];
         }
 
@@ -1093,7 +989,6 @@ class DashboardController extends Controller
                 'filter' => [
                     'itemid' => '72748', // Ganti dengan item ID yang sesuai
                 ],
-                // 'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -1104,7 +999,7 @@ class DashboardController extends Controller
 
         // Mengumpulkan riwayat berdasarkan item ID
         $currentTime = time();
-        $oneHourAgo = $currentTime - (1 * 60 * 60); // 1 jam sebelumnya
+        $oneHourAgo = $currentTime - 1 * 60 * 60; // 1 jam sebelumnya
         $historyResponse1 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -1115,7 +1010,6 @@ class DashboardController extends Controller
                 'itemids' => $itemIds1,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
-                // 'limit' => 30,
                 'history' => 0,
                 'time_from' => $oneHourAgo,
                 'time_till' => $currentTime,
@@ -1129,7 +1023,6 @@ class DashboardController extends Controller
         // Mengolah data untuk chart
         $chartDataa = [];
         foreach ($itemData1['result'] as $item) {
-
             $itemId1 = $item['itemid'];
             $itemName = $item['name'];
 
@@ -1152,7 +1045,6 @@ class DashboardController extends Controller
                 'name' => $itemName,
                 'labels' => $labels1,
                 'values' => $values1,
-
             ];
         }
 
@@ -1175,7 +1067,6 @@ class DashboardController extends Controller
                 'filter' => [
                     'itemid' => '72751', // Ganti dengan item ID yang sesuai
                 ],
-                // 'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -1186,7 +1077,7 @@ class DashboardController extends Controller
 
         // Mengumpulkan riwayat berdasarkan item ID
         $currentTime = time();
-        $oneHourAgo = $currentTime - (1 * 60 * 60); // 1 jam sebelumnya
+        $oneHourAgo = $currentTime - 1 * 60 * 60; // 1 jam sebelumnya
         $historyResponse1 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -1197,7 +1088,6 @@ class DashboardController extends Controller
                 'itemids' => $itemIds1,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
-                // 'limit' => 30,
                 'history' => 0,
                 'time_from' => $oneHourAgo,
                 'time_till' => $currentTime,
@@ -1211,7 +1101,6 @@ class DashboardController extends Controller
         // Mengolah data untuk chart
         $chartDataa = [];
         foreach ($itemData1['result'] as $item) {
-
             $itemId1 = $item['itemid'];
             $itemName = $item['name'];
 
@@ -1234,7 +1123,6 @@ class DashboardController extends Controller
                 'name' => $itemName,
                 'labels' => $labels1,
                 'values' => $values1,
-
             ];
         }
 
@@ -1257,7 +1145,6 @@ class DashboardController extends Controller
                 'filter' => [
                     'itemid' => '68862', // Ganti dengan item ID yang sesuai
                 ],
-                // 'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -1268,7 +1155,7 @@ class DashboardController extends Controller
 
         // Mengumpulkan riwayat berdasarkan item ID
         $currentTime = time();
-        $oneHourAgo = $currentTime - (1 * 60 * 60); // 1 jam sebelumnya
+        $oneHourAgo = $currentTime - 1 * 60 * 60; // 1 jam sebelumnya
         $historyResponse1 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -1279,7 +1166,6 @@ class DashboardController extends Controller
                 'itemids' => $itemIds1,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
-                // 'limit' => 30,
                 'history' => 0,
                 'time_from' => $oneHourAgo,
                 'time_till' => $currentTime,
@@ -1293,7 +1179,6 @@ class DashboardController extends Controller
         // Mengolah data untuk chart
         $chartDataa = [];
         foreach ($itemData1['result'] as $item) {
-
             $itemId1 = $item['itemid'];
             $itemName = $item['name'];
 
@@ -1316,7 +1201,6 @@ class DashboardController extends Controller
                 'name' => $itemName,
                 'labels' => $labels1,
                 'values' => $values1,
-
             ];
         }
 
@@ -1339,7 +1223,6 @@ class DashboardController extends Controller
                 'filter' => [
                     'itemid' => '73130', // Ganti dengan item ID yang sesuai
                 ],
-                // 'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -1350,7 +1233,7 @@ class DashboardController extends Controller
 
         // Mengumpulkan riwayat berdasarkan item ID
         $currentTime = time();
-        $oneHourAgo = $currentTime - (1 * 60 * 60); // 1 jam sebelumnya
+        $oneHourAgo = $currentTime - 1 * 60 * 60; // 1 jam sebelumnya
         $historyResponse1 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -1361,7 +1244,6 @@ class DashboardController extends Controller
                 'itemids' => $itemIds1,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
-                // 'limit' => 30,
                 'history' => 0,
                 'time_from' => $oneHourAgo,
                 'time_till' => $currentTime,
@@ -1375,7 +1257,6 @@ class DashboardController extends Controller
         // Mengolah data untuk chart
         $chartDataa = [];
         foreach ($itemData1['result'] as $item) {
-
             $itemId1 = $item['itemid'];
             $itemName = $item['name'];
 
@@ -1398,7 +1279,6 @@ class DashboardController extends Controller
                 'name' => $itemName,
                 'labels' => $labels1,
                 'values' => $values1,
-
             ];
         }
 
@@ -1421,7 +1301,6 @@ class DashboardController extends Controller
                 'filter' => [
                     'itemid' => '73149', // Ganti dengan item ID yang sesuai
                 ],
-                // 'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -1432,7 +1311,7 @@ class DashboardController extends Controller
 
         // Mengumpulkan riwayat berdasarkan item ID
         $currentTime = time();
-        $oneHourAgo = $currentTime - (1 * 60 * 60); // 1 jam sebelumnya
+        $oneHourAgo = $currentTime - 1 * 60 * 60; // 1 jam sebelumnya
         $historyResponse1 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -1443,7 +1322,6 @@ class DashboardController extends Controller
                 'itemids' => $itemIds1,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
-                // 'limit' => 30,
                 'history' => 0,
                 'time_from' => $oneHourAgo,
                 'time_till' => $currentTime,
@@ -1457,7 +1335,6 @@ class DashboardController extends Controller
         // Mengolah data untuk chart
         $chartDataa = [];
         foreach ($itemData1['result'] as $item) {
-
             $itemId1 = $item['itemid'];
             $itemName = $item['name'];
 
@@ -1480,7 +1357,6 @@ class DashboardController extends Controller
                 'name' => $itemName,
                 'labels' => $labels1,
                 'values' => $values1,
-
             ];
         }
 
@@ -1503,7 +1379,6 @@ class DashboardController extends Controller
                 'filter' => [
                     'itemid' => ['54160', '54195'], // Ganti dengan item ID yang sesuai
                 ],
-                // 'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -1514,7 +1389,7 @@ class DashboardController extends Controller
 
         // Mengumpulkan riwayat berdasarkan item ID
         $currentTime = time();
-        $oneHourAgo = $currentTime - (1 * 60 * 60); // 1 jam sebelumnya
+        $oneHourAgo = $currentTime - 1 * 60 * 60; // 1 jam sebelumnya
         $historyResponse1 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -1525,7 +1400,6 @@ class DashboardController extends Controller
                 'itemids' => $itemIds1,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
-                // 'limit' => 30,
                 'time_from' => $oneHourAgo,
                 'time_till' => $currentTime,
             ],
@@ -1538,7 +1412,6 @@ class DashboardController extends Controller
         // Mengolah data untuk chart
         $chartDataa = [];
         foreach ($itemData1['result'] as $item) {
-
             $itemId1 = $item['itemid'];
             $itemName = $item['name'];
 
@@ -1561,7 +1434,6 @@ class DashboardController extends Controller
                 'name' => $itemName,
                 'labels' => $labels1,
                 'values' => $values1,
-
             ];
         }
 
@@ -1584,7 +1456,6 @@ class DashboardController extends Controller
                 'filter' => [
                     'itemid' => '54200', // Ganti dengan item ID yang sesuai
                 ],
-                // 'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -1595,7 +1466,7 @@ class DashboardController extends Controller
 
         // Mengumpulkan riwayat berdasarkan item ID
         $currentTime = time();
-        $oneHourAgo = $currentTime - (1 * 60 * 60); // 1 jam sebelumnya
+        $oneHourAgo = $currentTime - 1 * 60 * 60; // 1 jam sebelumnya
         $historyResponse1 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -1607,7 +1478,6 @@ class DashboardController extends Controller
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'history' => 0,
-                // 'limit' => 30,
                 'time_from' => $oneHourAgo,
                 'time_till' => $currentTime,
             ],
@@ -1620,7 +1490,6 @@ class DashboardController extends Controller
         // Mengolah data untuk chart
         $chartDataa = [];
         foreach ($itemData1['result'] as $item) {
-
             $itemId1 = $item['itemid'];
             $itemName = $item['name'];
 
@@ -1643,7 +1512,6 @@ class DashboardController extends Controller
                 'name' => $itemName,
                 'labels' => $labels1,
                 'values' => $values1,
-
             ];
         }
 

@@ -78,21 +78,15 @@ Route::middleware(['auth'])->group(function () {
   
   // GET API SWITCH
   Route::get('Networktrafficint112Uplink', [SwitchController::class, 'Networktrafficint112Uplink'])->name('Networktrafficint112Uplink');
-  Route::get('Networktrafficint113Downlink', [SwitchController::class, 'Networktrafficint113Downlink'])->name('Networktrafficint113Downlink');
-  Route::get('Networktrafficint212Uplink', [SwitchController::class, 'Networktrafficint212Uplink'])->name('Networktrafficint212Uplink');
-  Route::get('Networktrafficint213Downlink', [SwitchController::class, 'Networktrafficint213Downlink'])->name('Networktrafficint213Downlink');
   Route::get('Networktrafficint141DownlinkMainOffice', [SwitchController::class, 'Networktrafficint141DownlinkMainOffice'])->name('Networktrafficint141DownlinkMainOffice');
   Route::get('Networktrafficint121DownlinkHall1', [SwitchController::class, 'Networktrafficint121DownlinkHall1'])->name('Networktrafficint121DownlinkHall1');
   Route::get('Networktrafficint122DownlinkWorkshop', [SwitchController::class, 'Networktrafficint122DownlinkWorkshop'])->name('Networktrafficint122DownlinkWorkshop');
   Route::get('Networktrafficint142DownlinkHall2', [SwitchController::class, 'Networktrafficint142DownlinkHall2'])->name('Networktrafficint142DownlinkHall2');
   Route::get('Networktrafficint143DownlinkHall3', [SwitchController::class, 'Networktrafficint143DownlinkHall3'])->name('Networktrafficint143DownlinkHall3');
   Route::get('Networktrafficint131DownlinkSmalloffice1', [SwitchController::class, 'Networktrafficint131DownlinkSmalloffice1'])->name('Networktrafficint131DownlinkSmalloffice1');
-  Route::get('Networktrafficint131DownlinkSmalloffice2', [SwitchController::class, 'Networktrafficint131DownlinkSmalloffice2'])->name('Networktrafficint131DownlinkSmalloffice2');
-  Route::get('Networktrafficint133DownlinkSecurity1', [SwitchController::class, 'Networktrafficint133DownlinkSecurity1'])->name('Networktrafficint133DownlinkSecurity1');
-  Route::get('Networktrafficint134DownlinkSecurity2', [SwitchController::class, 'Networktrafficint134DownlinkSecurity2'])->name('Networktrafficint134DownlinkSecurity2');
+  Route::get('Networktrafficint132DownlinkSmalloffice2', [SwitchController::class, 'Networktrafficint132DownlinkSmalloffice2'])->name('Networktrafficint132DownlinkSmalloffice2');
   Route::get('Networktrafficint121ISPCyberplus', [SwitchController::class, 'Networktrafficint121ISPCyberplus'])->name('Networktrafficint121ISPCyberplus');
   Route::get('Networktrafficint112ISPLinknet', [SwitchController::class, 'Networktrafficint112ISPLinknet'])->name('Networktrafficint112ISPLinknet');
-  Route::get('Networktrafficint1124ISPLinknet', [SwitchController::class, 'Networktrafficint1124ISPLinknet'])->name('Networktrafficint1124ISPLinknet');
   
   // GET API FIREWALL
   Route::get('CurrentRAMUsage', [FirewallController::class, 'CurrentRAMUsage'])->name('CurrentRAMUsage');
@@ -107,9 +101,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('CPUUtillATT', [ServerController::class, 'CPUUtillATT'])->name('CPUUtillATT');
     Route::get('DiskSpaceUsageATT', [ServerController::class, 'DiskSpaceUsageATT'])->name('DiskSpaceUsageATT');
 });
-    
-  
-
-
 
 require __DIR__ . '/auth.php';

@@ -26,7 +26,6 @@ class ServerController extends Controller
                 'filter' => [
                     'itemid' => ['54160', '54195'], // Ganti dengan item ID yang sesuai
                 ],
-                'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -86,7 +85,6 @@ class ServerController extends Controller
                 'filter' => [
                     'itemid' => '54200', // Ganti dengan item ID yang sesuai
                 ],
-                'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -147,7 +145,6 @@ class ServerController extends Controller
                 'filter' => [
                     'itemid' => ['54244', '54248'], // Ganti dengan item ID yang sesuai
                 ],
-                'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -209,7 +206,6 @@ class ServerController extends Controller
                 'filter' => [
                     'itemid' => '53625', // Ganti dengan item ID yang sesuai
                 ],
-                'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -270,7 +266,6 @@ class ServerController extends Controller
                 'filter' => [
                     'itemid' => '53618', // Ganti dengan item ID yang sesuai
                 ],
-                'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -331,7 +326,6 @@ class ServerController extends Controller
                 'filter' => [
                     'itemid' => ['53712', '53713'], // Ganti dengan item ID yang sesuai
                 ],
-                'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -387,7 +381,7 @@ class ServerController extends Controller
         $url = env('ZABBIX_API_URL');
         $token = env('ZABBIX_API_TOKEN');
 
-        // Memory Usage QAD
+        // MemoryUsageQAD
         $itemRes = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -398,7 +392,6 @@ class ServerController extends Controller
                 'filter' => [
                     'itemid' =>  ['54160', '54195'], // Ganti dengan item ID yang sesuai
                 ],
-                // 'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -420,7 +413,6 @@ class ServerController extends Controller
                 'itemids' => $itemIds,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
-                // 'limit' => 30,
                 'time_from' => $oneHourAgo,
                 'time_till' => $currentTime,
             ],
@@ -468,7 +460,7 @@ class ServerController extends Controller
         $url = env('ZABBIX_API_URL');
         $token = env('ZABBIX_API_TOKEN');
 
-        // CPU Utilization QAD
+        // CPUUtillQAD
         $itemRes = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -479,7 +471,6 @@ class ServerController extends Controller
                 'filter' => [
                     'itemid' => '54200', // Ganti dengan item ID yang sesuai
                 ],
-                // 'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -502,7 +493,6 @@ class ServerController extends Controller
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'history' => 0,
-                // 'limit' => 30,
                 'time_from' => $oneHourAgo,
                 'time_till' => $currentTime,
             ],
@@ -550,7 +540,7 @@ class ServerController extends Controller
         $url = env('ZABBIX_API_URL');
         $token = env('ZABBIX_API_TOKEN');
 
-        // Disk Space Usage QAD
+        // DiskSpaceUsageQAD
         $itemRes = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -561,7 +551,6 @@ class ServerController extends Controller
                 'filter' => [
                     'itemid' => ['54244', '54248'], // Ganti dengan item ID yang sesuai
                 ],
-                // 'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -583,7 +572,6 @@ class ServerController extends Controller
                 'itemids' => $itemIds,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
-                // 'limit' => 30,
                 'time_from' => $oneHourAgo,
                 'time_till' => $currentTime,
             ],
@@ -631,7 +619,7 @@ class ServerController extends Controller
         $url = env('ZABBIX_API_URL');
         $token = env('ZABBIX_API_TOKEN');
 
-        // Memory Utilization ATT
+        // MemoryUtilATT
         $itemRes = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -642,7 +630,6 @@ class ServerController extends Controller
                 'filter' => [
                     'itemid' => '53625', // Ganti dengan item ID yang sesuai
                 ],
-                // 'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -665,7 +652,6 @@ class ServerController extends Controller
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'history' => 0,
-                // 'limit' => 30,
                 'time_from' => $oneHourAgo,
                 'time_till' => $currentTime,
             ],
@@ -713,7 +699,7 @@ class ServerController extends Controller
         $url = env('ZABBIX_API_URL');
         $token = env('ZABBIX_API_TOKEN');
 
-        // CPU Utilization ATT
+        // CPUUtillATT
         $itemRes = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -724,7 +710,6 @@ class ServerController extends Controller
                 'filter' => [
                     'itemid' => '53618', // Ganti dengan item ID yang sesuai
                 ],
-                // 'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,
@@ -747,7 +732,6 @@ class ServerController extends Controller
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'history' => 0,
-                // 'limit' => 30,
                 'time_from' => $oneHourAgo,
                 'time_till' => $currentTime,
             ],
@@ -795,7 +779,7 @@ class ServerController extends Controller
         $url = env('ZABBIX_API_URL');
         $token = env('ZABBIX_API_TOKEN');
 
-        // Disk Space Usage ATT
+        // DiskSpaceUsageATT
         $itemRes = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -806,7 +790,6 @@ class ServerController extends Controller
                 'filter' => [
                     'itemid' => ['53712', '53713'], // Ganti dengan item ID yang sesuai
                 ],
-                // 'limit' => 10,
             ],
             'auth' => $token,
             'id' => 1,

@@ -127,8 +127,9 @@
                 updateChart();
 
                 // Perbarui grafik setiap 5 detik
-                setInterval(updateChart, 5000);
+                setInterval(updateChart, 15000);
             </script>
+
 
             {{-- •	NetworkTrafficLinknetFirewall  --}}
             <div class="col-6">
@@ -248,8 +249,9 @@
                 updateChart();
 
                 // Perbarui grafik setiap 5 detik
-                setInterval(updateChart, 5000);
+                setInterval(updateChart, 15000);
             </script>
+
 
             {{-- •	PingGatewayISPCyberplus  --}}
             <div class="col-6">
@@ -270,8 +272,8 @@
                 // Fungsi untuk mengonversi nilai menjadi megabit per detik (Mbps)
                 function convertToMs(value) {
 
-                    var mbpsValue = value * 1000;
-                    return mbpsValue;
+                    var msValue = value * 1000;
+                    return msValue;
                 }
 
                 // Konversi nilai pada datasets menjadi megabit per detik (Mbps)
@@ -370,7 +372,7 @@
                 updateChart();
 
                 // Perbarui grafik setiap 5 detik
-                setInterval(updateChart, 5000);
+                setInterval(updateChart, 15000);
             </script>
 
 
@@ -493,9 +495,8 @@
                 updateChart();
 
                 // Perbarui grafik setiap 5 detik
-                setInterval(updateChart, 5000);
+                setInterval(updateChart, 15000);
             </script>
-
 
 
             {{-- •	PinglossCyberplus  --}}
@@ -515,16 +516,16 @@
                 // Ambil data yang dikirim dari kontroler
                 var chartData4 = {!! json_encode($chartData4) !!};
                 // Fungsi untuk mengonversi nilai menjadi megabit per detik (Mbps)
-                function convertToPersen4(value) {
+                function convertToPercent(value) {
 
-                    var mbpsValue = value;
-                    return mbpsValue;
+                    var percentValue = value;
+                    return percentValue;
                 }
 
                 // Konversi nilai pada datasets menjadi megabit per detik (Mbps)
                 for (var i = 0; i < chartData4.length; i++) {
                     for (var j = 0; j < chartData4[i].data.length; j++) {
-                        chartData4[i].data[j] = convertToPersen4(chartData4[i].data[j]);
+                        chartData4[i].data[j] = convertToPercent(chartData4[i].data[j]);
                     }
                 }
 
@@ -606,7 +607,7 @@
 
                             for (var i = 0; i < response.length; i++) {
                                 myChart4.data.datasets[i].data = response[i].values.reverse().map(function(value) {
-                                    return convertToPersen4(value);
+                                    return convertToPercent(value);
                                 });
                             }
 
@@ -619,9 +620,8 @@
                 updateChart();
 
                 // Perbarui grafik setiap 5 detik
-                setInterval(updateChart, 5000);
+                setInterval(updateChart, 15000);
             </script>
-
 
 
             {{-- •	PinglossLinknet  --}}
@@ -641,16 +641,16 @@
                 // Ambil data yang dikirim dari kontroler
                 var chartData5 = {!! json_encode($chartData5) !!};
                 // Fungsi untuk mengonversi nilai menjadi megabit per detik (Ms)
-                function convertToPersen5(value) {
+                function convertToPercent(value) {
 
-                    var msValue = value;
-                    return msValue;
+                    var percentValue = value;
+                    return percentValue;
                 }
 
                 // Konversi nilai pada datasets menjadi megabit per detik (Ms)
                 for (var i = 0; i < chartData5.length; i++) {
                     for (var j = 0; j < chartData5[i].data.length; j++) {
-                        chartData5[i].data[j] = convertToPersen5(chartData5[i].data[j]);
+                        chartData5[i].data[j] = convertToPercent(chartData5[i].data[j]);
                     }
                 }
 
@@ -728,7 +728,7 @@
 
                             for (var i = 0; i < response.length; i++) {
                                 myChart5.data.datasets[i].data = response[i].values.reverse().map(function(value) {
-                                    return convertToPersen5(value);
+                                    return convertToPercent(value);
                                 });
                             }
 
@@ -741,7 +741,7 @@
                 updateChart();
 
                 // Perbarui grafik setiap 5 detik
-                setInterval(updateChart, 5000);
+                setInterval(updateChart, 15000);
             </script>
 
 
@@ -865,7 +865,7 @@
                 updateChart();
 
                 // Perbarui grafik setiap 5 detik
-                setInterval(updateChart, 5000);
+                setInterval(updateChart, 15000);
             </script>
 
 
@@ -888,8 +888,8 @@
                 // Fungsi untuk mengonversi nilai menjadi megabit per detik (Mbps)
                 function convertToMs(value) {
 
-                    var mbpsValue = value * 1000;
-                    return mbpsValue;
+                    var msValue = value * 1000;
+                    return msValue;
                 }
 
                 // Konversi nilai pada datasets menjadi megabit per detik (Mbps)
@@ -989,7 +989,7 @@
                 updateChart();
 
                 // Perbarui grafik setiap 5 detik
-                setInterval(updateChart, 5000);
+                setInterval(updateChart, 15000);
             </script>
 
 
@@ -1012,8 +1012,8 @@
                 // Fungsi untuk mengonversi nilai menjadi megabit per detik (Mbps)
                 function convertToMs(value) {
 
-                    var mbpsValue = value * 1000;
-                    return mbpsValue;
+                    var msValue = value * 1000;
+                    return msValue;
                 }
 
                 // Konversi nilai pada datasets menjadi megabit per detik (Mbps)
@@ -1113,11 +1113,11 @@
                 updateChart();
 
                 // Perbarui grafik setiap 5 detik
-                setInterval(updateChart, 5000);
+                setInterval(updateChart, 15000);
             </script>
 
 
-            {{-- •	MemoryUsage    --}}
+            {{-- •	MemoryUsage  --}}
             <div class="col-6">
                 <div class="card">
                     <div class="card-header" style="padding: 5px">
@@ -1134,16 +1134,16 @@
                 // Ambil data yang dikirim dari kontroler
                 var chartData9 = {!! json_encode($chartData9) !!};
                 // Fungsi untuk mengonversi nilai menjadi megabit per detik (Mbps)
-                function convertToBG(value) {
+                function convertToGB(value) {
 
-                    var mbpsValue = value * 8 / 1024 / 1024 / 1024 / 10;
-                    return mbpsValue;
+                    var GBValue = value * 8 / 1024 / 1024 / 1024 / 10;
+                    return GBValue;
                 }
 
                 // Konversi nilai pada datasets menjadi megabit per detik (Mbps)
                 for (var i = 0; i < chartData9.length; i++) {
                     for (var j = 0; j < chartData9[i].data.length; j++) {
-                        chartData9[i].data[j] = convertToBG(chartData9[i].data[j]);
+                        chartData9[i].data[j] = convertToGB(chartData9[i].data[j]);
                     }
                 }
 
@@ -1224,7 +1224,7 @@
 
                             for (var i = 0; i < response.length; i++) {
                                 myChart9.data.datasets[i].data = response[i].values.reverse().map(function(value) {
-                                    return convertToBG(value);
+                                    return convertToGB(value);
                                 });
                             }
 
@@ -1237,11 +1237,11 @@
                 updateChart();
 
                 // Perbarui grafik setiap 5 detik
-                setInterval(updateChart, 5000);
+                setInterval(updateChart, 15000);
             </script>
 
 
-            {{-- •	•	CPUUtilization     --}}
+            {{-- •	CPUUtilization  --}}
             <div class="col-6">
                 <div class="card">
                     <div class="card-header" style="padding: 5px">
@@ -1258,16 +1258,16 @@
                 // Ambil data yang dikirim dari kontroler
                 var chartData10 = {!! json_encode($chartData10) !!};
                 // Fungsi untuk mengonversi nilai menjadi megabit per detik (Mbps)
-                function CPUUtilization(value) {
+                function convertToPercent(value) {
 
-                    var mbpsValue = value;
-                    return mbpsValue;
+                    var percentValue = value;
+                    return percentValue;
                 }
 
                 // Konversi nilai pada datasets menjadi megabit per detik (Mbps)
                 for (var i = 0; i < chartData10.length; i++) {
                     for (var j = 0; j < chartData10[i].data.length; j++) {
-                        chartData10[i].data[j] = CPUUtilization(chartData10[i].data[j]);
+                        chartData10[i].data[j] = convertToPercent(chartData10[i].data[j]);
                     }
                 }
 
@@ -1348,7 +1348,7 @@
 
                             for (var i = 0; i < response.length; i++) {
                                 myChart10.data.datasets[i].data = response[i].values.reverse().map(function(value) {
-                                    return CPUUtilization(value);
+                                    return convertToPercent(value);
                                 });
                             }
 
@@ -1361,84 +1361,8 @@
                 updateChart();
 
                 // Perbarui grafik setiap 5 detik
-                setInterval(updateChart, 5000);
+                setInterval(updateChart, 15000);
             </script>
-
-            {{-- •	•	DiskSpaceUsage      --}}
-            {{-- <div class="col-4">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-header" style="padding: 5px">
-
-                            <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Disk Space Usage (QAD Server)</h6>
-                        </div>
-                        <!-- Tampilkan chart di sini dengan menggunakan data riwayat yang sesuai -->
-                        <div id="DiskSpaceUsageQAD"  height="150px"></div>
-                    </div>
-                </div>
-            </div>
-            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-            <script type="text/javascript">
-                var chartData11 = {!! json_encode($chartData11) !!};
-
-                google.charts.load('current', {
-                    'packages': ['corechart']
-                });
-                google.charts.setOnLoadCallback(drawChart);
-
-                function drawChart() {
-                    var data = new google.visualization.DataTable();
-                    data.addColumn('string', 'Label');
-                    data.addColumn('number', 'Value');
-
-                    chartData2.forEach(function(chartData) {
-                        var value = parseFloat(chartData[1]); // Mengubah string menjadi tipe data numerik
-                        data.addRow([chartData[0], value]);
-                    });
-
-                    var options = {
-                        chartArea: { width: '100%', height: '90%' },
-                        legend: { position: 'right' },
-                    };
-
-                    var chart = new google.visualization.PieChart(document.getElementById('DiskSpaceUsageQAD'));
-
-                    chart.draw(data, options);
-                }
-            </script> --}}
-
-
-            {{-- <div id="piechart"></div>
-
-
-            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-            <script type="text/javascript">
-                var chartData11 = {!! json_encode($chartData11) !!};
-
-                google.charts.load('current', {
-                    'packages': ['corechart']
-                });
-                google.charts.setOnLoadCallback(drawChart);
-
-                function drawChart() {
-                    var data = new google.visualization.DataTable();
-                    data.addColumn('string', 'Label');
-                    data.addColumn('number', 'Value');
-
-                    chartData11.forEach(function(chartData) {
-                        var value = parseFloat(chartData[1]); // Mengubah string menjadi tipe data numerik
-                        data.addRow([chartData[0], value]);
-                    });
-
-                    var options = {
-                        title: 'Disk Space Usage (server 1) '
-                    };
-
-                    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-                    chart.draw(data, options);
-                }
-            </script> --}}
 
         </div>
     @endsection
