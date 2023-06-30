@@ -480,124 +480,124 @@ class SwitchController extends Controller
             ];
         }
 
-        //•	Network traffic int 1/2/1 ISP Cyberplus (WAN switch)
-        $itemResponse8 = Http::withOptions([
-            'timeout' => 60,
-        ])->post($url, [
-            'jsonrpc' => '2.0',
-            'method' => 'item.get',
-            'params' => [
-                'output' => 'extend',
-                'filter' => [
-                    'itemid' => ['69843', '69853'], // Ganti dengan item ID yang sesuai
-                ],
-            ],
-            'auth' => $token,
-            'id' => 1,
-        ]);
+        // //•	Network traffic int 1/2/1 ISP Cyberplus (WAN switch)
+        // $itemResponse8 = Http::withOptions([
+        //     'timeout' => 60,
+        // ])->post($url, [
+        //     'jsonrpc' => '2.0',
+        //     'method' => 'item.get',
+        //     'params' => [
+        //         'output' => 'extend',
+        //         'filter' => [
+        //             'itemid' => ['69843', '69853'], // Ganti dengan item ID yang sesuai
+        //         ],
+        //     ],
+        //     'auth' => $token,
+        //     'id' => 1,
+        // ]);
 
-        $itemData8 = $itemResponse8->json();
-        $itemIds8 = array_column($itemData8['result'], 'itemid');
+        // $itemData8 = $itemResponse8->json();
+        // $itemIds8 = array_column($itemData8['result'], 'itemid');
 
-        // Panggil API Zabbix untuk mendapatkan riwayat berdasarkan item ID
-        $historyResponse8 = Http::withOptions([
-            'timeout' => 60,
-        ])->post($url, [
-            'jsonrpc' => '2.0',
-            'method' => 'history.get',
-            'params' => [
-                'output' => 'extend',
-                "itemids" =>  $itemIds8,
-                'sortfield' => 'clock',
-                'sortorder' => 'DESC',
-                'time_from' => $oneHourAgo,
-                'time_till' => $currentTime,
-            ],
-            'auth' => $token,
-            'id' => 1,
-        ]);
+        // // Panggil API Zabbix untuk mendapatkan riwayat berdasarkan item ID
+        // $historyResponse8 = Http::withOptions([
+        //     'timeout' => 60,
+        // ])->post($url, [
+        //     'jsonrpc' => '2.0',
+        //     'method' => 'history.get',
+        //     'params' => [
+        //         'output' => 'extend',
+        //         "itemids" =>  $itemIds8,
+        //         'sortfield' => 'clock',
+        //         'sortorder' => 'DESC',
+        //         'time_from' => $oneHourAgo,
+        //         'time_till' => $currentTime,
+        //     ],
+        //     'auth' => $token,
+        //     'id' => 1,
+        // ]);
 
-        $historyData8 = $historyResponse8->json();
+        // $historyData8 = $historyResponse8->json();
 
-        $data8 =  [
-            'items' => $itemData8['result'],
-            'history' => $historyData8['result'],
-        ];
+        // $data8 =  [
+        //     'items' => $itemData8['result'],
+        //     'history' => $historyData8['result'],
+        // ];
 
-        // Mengolah data untuk chart
-        $chartData8 = [];
-        foreach ($itemData8['result'] as $item8) {
-            $itemId8 = $item8['itemid'];
-            $itemName8 = $item8['name'];
-            $itemHistory8 = array_filter($historyData8['result'], function ($history8) use ($itemId8) {
-                return $history8['itemid'] == $itemId8;
-            });
-            $chartData8[] = [
-                'name' => $itemName8,
-                'data' => array_column($itemHistory8, 'value'),
-            ];
-        }
+        // // Mengolah data untuk chart
+        // $chartData8 = [];
+        // foreach ($itemData8['result'] as $item8) {
+        //     $itemId8 = $item8['itemid'];
+        //     $itemName8 = $item8['name'];
+        //     $itemHistory8 = array_filter($historyData8['result'], function ($history8) use ($itemId8) {
+        //         return $history8['itemid'] == $itemId8;
+        //     });
+        //     $chartData8[] = [
+        //         'name' => $itemName8,
+        //         'data' => array_column($itemHistory8, 'value'),
+        //     ];
+        // }
 
-        //•	Network traffic int 1/1/2 ISP Linknet (WAN switch)
-        $itemResponse9 = Http::withOptions([
-            'timeout' => 60,
-        ])->post($url, [
-            'jsonrpc' => '2.0',
-            'method' => 'item.get',
-            'params' => [
-                'output' => 'extend',
-                'filter' => [
-                    'itemid' => ['69873', '69883'], // Ganti dengan item ID yang sesuai
-                ],
-            ],
-            'auth' => $token,
-            'id' => 1,
-        ]);
+        // //•	Network traffic int 1/1/2 ISP Linknet (WAN switch)
+        // $itemResponse9 = Http::withOptions([
+        //     'timeout' => 60,
+        // ])->post($url, [
+        //     'jsonrpc' => '2.0',
+        //     'method' => 'item.get',
+        //     'params' => [
+        //         'output' => 'extend',
+        //         'filter' => [
+        //             'itemid' => ['69873', '69883'], // Ganti dengan item ID yang sesuai
+        //         ],
+        //     ],
+        //     'auth' => $token,
+        //     'id' => 1,
+        // ]);
 
-        $itemData9 = $itemResponse9->json();
-        $itemIds9 = array_column($itemData9['result'], 'itemid');
+        // $itemData9 = $itemResponse9->json();
+        // $itemIds9 = array_column($itemData9['result'], 'itemid');
 
-        // Panggil API Zabbix untuk mendapatkan riwayat berdasarkan item ID
-        $historyResponse9 = Http::withOptions([
-            'timeout' => 60,
-        ])->post($url, [
-            'jsonrpc' => '2.0',
-            'method' => 'history.get',
-            'params' => [
-                'output' => 'extend',
-                "itemids" =>  $itemIds9,
-                'sortfield' => 'clock',
-                'sortorder' => 'DESC',
-                'time_from' => $oneHourAgo,
-                'time_till' => $currentTime,
-            ],
-            'auth' => $token,
-            'id' => 1,
-        ]);
+        // // Panggil API Zabbix untuk mendapatkan riwayat berdasarkan item ID
+        // $historyResponse9 = Http::withOptions([
+        //     'timeout' => 60,
+        // ])->post($url, [
+        //     'jsonrpc' => '2.0',
+        //     'method' => 'history.get',
+        //     'params' => [
+        //         'output' => 'extend',
+        //         "itemids" =>  $itemIds9,
+        //         'sortfield' => 'clock',
+        //         'sortorder' => 'DESC',
+        //         'time_from' => $oneHourAgo,
+        //         'time_till' => $currentTime,
+        //     ],
+        //     'auth' => $token,
+        //     'id' => 1,
+        // ]);
 
-        $historyData9 = $historyResponse9->json();
+        // $historyData9 = $historyResponse9->json();
 
-        $data9 =  [
-            'items' => $itemData9['result'],
-            'history' => $historyData9['result'],
-        ];
+        // $data9 =  [
+        //     'items' => $itemData9['result'],
+        //     'history' => $historyData9['result'],
+        // ];
 
-        // Mengolah data untuk chart
-        $chartData9 = [];
-        foreach ($itemData9['result'] as $item9) {
-            $itemId9 = $item9['itemid'];
-            $itemName9 = $item9['name'];
-            $itemHistory9 = array_filter($historyData9['result'], function ($history9) use ($itemId9) {
-                return $history9['itemid'] == $itemId9;
-            });
-            $chartData9[] = [
-                'name' => $itemName9,
-                'data' => array_column($itemHistory9, 'value'),
-            ];
-        }
+        // // Mengolah data untuk chart
+        // $chartData9 = [];
+        // foreach ($itemData9['result'] as $item9) {
+        //     $itemId9 = $item9['itemid'];
+        //     $itemName9 = $item9['name'];
+        //     $itemHistory9 = array_filter($historyData9['result'], function ($history9) use ($itemId9) {
+        //         return $history9['itemid'] == $itemId9;
+        //     });
+        //     $chartData9[] = [
+        //         'name' => $itemName9,
+        //         'data' => array_column($itemHistory9, 'value'),
+        //     ];
+        // }
         
 
-        return view('switch', compact('chartData', 'chartData1', 'chartData2', 'chartData3', 'chartData4', 'chartData5', 'chartData6', 'chartData7', 'chartData8', 'chartData8', 'chartData9'));
+        return view('switch', compact('chartData', 'chartData1', 'chartData2', 'chartData3', 'chartData4', 'chartData5', 'chartData6', 'chartData7'));
     }
 
     public function Networktrafficint112Uplink()
@@ -1238,163 +1238,163 @@ class SwitchController extends Controller
     }
 
 
-    public function Networktrafficint121ISPCyberplus()
-    {
-        $url = env('ZABBIX_API_URL');
-        $token = env('ZABBIX_API_TOKEN');
+    // public function Networktrafficint121ISPCyberplus()
+    // {
+    //     $url = env('ZABBIX_API_URL');
+    //     $token = env('ZABBIX_API_TOKEN');
 
-        // Networktrafficint121ISPCyberplus
-        $itemRes = Http::withOptions([
-            'timeout' => 60,
-        ])->post($url, [
-            'jsonrpc' => '2.0',
-            'method' => 'item.get',
-            'params' => [
-                'output' => 'extend',
-                'filter' => [
-                    'itemid' => ['69843', '69853'], // Ganti dengan item ID yang sesuai
-                ],
-            ],
-            'auth' => $token,
-            'id' => 1,
-        ]);
+    //     // Networktrafficint121ISPCyberplus
+    //     $itemRes = Http::withOptions([
+    //         'timeout' => 60,
+    //     ])->post($url, [
+    //         'jsonrpc' => '2.0',
+    //         'method' => 'item.get',
+    //         'params' => [
+    //             'output' => 'extend',
+    //             'filter' => [
+    //                 'itemid' => ['69843', '69853'], // Ganti dengan item ID yang sesuai
+    //             ],
+    //         ],
+    //         'auth' => $token,
+    //         'id' => 1,
+    //     ]);
 
-        $itemData = $itemRes->json();
-        $itemIds = array_column($itemData['result'], 'itemid');
+    //     $itemData = $itemRes->json();
+    //     $itemIds = array_column($itemData['result'], 'itemid');
 
-        // Mengumpulkan riwayat berdasarkan item ID
-        $currentTime = time();
-        $oneHourAgo = $currentTime - (1 * 60 * 60); // 1 jam sebelumnya
-        $historyResponse = Http::withOptions([
-            'timeout' => 60,
-        ])->post($url, [
-            'jsonrpc' => '2.0',
-            'method' => 'history.get',
-            'params' => [
-                'output' => 'extend',
-                'itemids' => $itemIds,
-                'sortfield' => 'clock',
-                'sortorder' => 'DESC',
-                'time_from' => $oneHourAgo,
-                'time_till' => $currentTime,
-            ],
-            'auth' => $token,
-            'id' => 1,
-        ]);
+    //     // Mengumpulkan riwayat berdasarkan item ID
+    //     $currentTime = time();
+    //     $oneHourAgo = $currentTime - (1 * 60 * 60); // 1 jam sebelumnya
+    //     $historyResponse = Http::withOptions([
+    //         'timeout' => 60,
+    //     ])->post($url, [
+    //         'jsonrpc' => '2.0',
+    //         'method' => 'history.get',
+    //         'params' => [
+    //             'output' => 'extend',
+    //             'itemids' => $itemIds,
+    //             'sortfield' => 'clock',
+    //             'sortorder' => 'DESC',
+    //             'time_from' => $oneHourAgo,
+    //             'time_till' => $currentTime,
+    //         ],
+    //         'auth' => $token,
+    //         'id' => 1,
+    //     ]);
 
-        $historyData = $historyResponse->json();
+    //     $historyData = $historyResponse->json();
 
-        // Mengolah data untuk chart
-        $chartDataa = [];
-        foreach ($itemData['result'] as $item) {
+    //     // Mengolah data untuk chart
+    //     $chartDataa = [];
+    //     foreach ($itemData['result'] as $item) {
 
-            $itemId = $item['itemid'];
-            $itemName = $item['name'];
+    //         $itemId = $item['itemid'];
+    //         $itemName = $item['name'];
 
-            $itemHistory = array_filter($historyData['result'], function ($history) use ($itemId) {
-                return $history['itemid'] == $itemId;
-            });
+    //         $itemHistory = array_filter($historyData['result'], function ($history) use ($itemId) {
+    //             return $history['itemid'] == $itemId;
+    //         });
 
-            // Batasi jumlah data riwayat menjadi 30
-            $itemHistory = array_slice($itemHistory, 0);
+    //         // Batasi jumlah data riwayat menjadi 30
+    //         $itemHistory = array_slice($itemHistory, 0);
 
-            $labels = [];
-            $values = [];
+    //         $labels = [];
+    //         $values = [];
 
-            foreach ($itemHistory as $history) {
-                $labels[] = date('H:i', $history['clock']);
-                $values[] = floatval($history['value']);
-            }
+    //         foreach ($itemHistory as $history) {
+    //             $labels[] = date('H:i', $history['clock']);
+    //             $values[] = floatval($history['value']);
+    //         }
 
-            $chartData[] = [
-                'name' => $itemName,
-                'labels' => $labels,
-                'values' => $values,
+    //         $chartData[] = [
+    //             'name' => $itemName,
+    //             'labels' => $labels,
+    //             'values' => $values,
 
-            ];
-        }
+    //         ];
+    //     }
 
-        return response()->json($chartData);
-    }
+    //     return response()->json($chartData);
+    // }
 
-    public function Networktrafficint112ISPLinknet()
-    {
-        $url = env('ZABBIX_API_URL');
-        $token = env('ZABBIX_API_TOKEN');
+    // public function Networktrafficint112ISPLinknet()
+    // {
+    //     $url = env('ZABBIX_API_URL');
+    //     $token = env('ZABBIX_API_TOKEN');
 
-        // Networktrafficint112ISPLinknet
-        $itemRes = Http::withOptions([
-            'timeout' => 60,
-        ])->post($url, [
-            'jsonrpc' => '2.0',
-            'method' => 'item.get',
-            'params' => [
-                'output' => 'extend',
-                'filter' => [
-                    'itemid' => ['69873', '69883'], // Ganti dengan item ID yang sesuai
-                ],
-            ],
-            'auth' => $token,
-            'id' => 1,
-        ]);
+    //     // Networktrafficint112ISPLinknet
+    //     $itemRes = Http::withOptions([
+    //         'timeout' => 60,
+    //     ])->post($url, [
+    //         'jsonrpc' => '2.0',
+    //         'method' => 'item.get',
+    //         'params' => [
+    //             'output' => 'extend',
+    //             'filter' => [
+    //                 'itemid' => ['69873', '69883'], // Ganti dengan item ID yang sesuai
+    //             ],
+    //         ],
+    //         'auth' => $token,
+    //         'id' => 1,
+    //     ]);
 
-        $itemData = $itemRes->json();
-        $itemIds = array_column($itemData['result'], 'itemid');
+    //     $itemData = $itemRes->json();
+    //     $itemIds = array_column($itemData['result'], 'itemid');
 
-        // Mengumpulkan riwayat berdasarkan item ID
-        $currentTime = time();
-        $oneHourAgo = $currentTime - (1 * 60 * 60); // 1 jam sebelumnya
-        $historyResponse = Http::withOptions([
-            'timeout' => 60,
-        ])->post($url, [
-            'jsonrpc' => '2.0',
-            'method' => 'history.get',
-            'params' => [
-                'output' => 'extend',
-                'itemids' => $itemIds,
-                'sortfield' => 'clock',
-                'sortorder' => 'DESC',
-                'time_from' => $oneHourAgo,
-                'time_till' => $currentTime,
-            ],
-            'auth' => $token,
-            'id' => 1,
-        ]);
+    //     // Mengumpulkan riwayat berdasarkan item ID
+    //     $currentTime = time();
+    //     $oneHourAgo = $currentTime - (1 * 60 * 60); // 1 jam sebelumnya
+    //     $historyResponse = Http::withOptions([
+    //         'timeout' => 60,
+    //     ])->post($url, [
+    //         'jsonrpc' => '2.0',
+    //         'method' => 'history.get',
+    //         'params' => [
+    //             'output' => 'extend',
+    //             'itemids' => $itemIds,
+    //             'sortfield' => 'clock',
+    //             'sortorder' => 'DESC',
+    //             'time_from' => $oneHourAgo,
+    //             'time_till' => $currentTime,
+    //         ],
+    //         'auth' => $token,
+    //         'id' => 1,
+    //     ]);
 
-        $historyData = $historyResponse->json();
+    //     $historyData = $historyResponse->json();
 
-        // Mengolah data untuk chart
-        $chartDataa = [];
-        foreach ($itemData['result'] as $item) {
+    //     // Mengolah data untuk chart
+    //     $chartDataa = [];
+    //     foreach ($itemData['result'] as $item) {
 
-            $itemId = $item['itemid'];
-            $itemName = $item['name'];
+    //         $itemId = $item['itemid'];
+    //         $itemName = $item['name'];
 
-            $itemHistory = array_filter($historyData['result'], function ($history) use ($itemId) {
-                return $history['itemid'] == $itemId;
-            });
+    //         $itemHistory = array_filter($historyData['result'], function ($history) use ($itemId) {
+    //             return $history['itemid'] == $itemId;
+    //         });
 
-            // Batasi jumlah data riwayat menjadi 30
-            $itemHistory = array_slice($itemHistory, 0);
+    //         // Batasi jumlah data riwayat menjadi 30
+    //         $itemHistory = array_slice($itemHistory, 0);
 
-            $labels = [];
-            $values = [];
+    //         $labels = [];
+    //         $values = [];
 
-            foreach ($itemHistory as $history) {
-                $labels[] = date('H:i', $history['clock']);
-                $values[] = floatval($history['value']);
-            }
+    //         foreach ($itemHistory as $history) {
+    //             $labels[] = date('H:i', $history['clock']);
+    //             $values[] = floatval($history['value']);
+    //         }
 
-            $chartData[] = [
-                'name' => $itemName,
-                'labels' => $labels,
-                'values' => $values,
+    //         $chartData[] = [
+    //             'name' => $itemName,
+    //             'labels' => $labels,
+    //             'values' => $values,
 
-            ];
-        }
+    //         ];
+    //     }
 
-        return response()->json($chartData);
-    }
+    //     return response()->json($chartData);
+    // }
 
 
 }

@@ -6,7 +6,7 @@
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-            {{-- •	•	Networktrafficint112Uplink (core switch  --}}
+            {{-- •	Networktrafficint112Uplink (core switch  --}}
             <div class="col-6">
                 <div class="card">
                     <div class="card-header" style="padding: 5px">
@@ -1031,7 +1031,7 @@
 
 
             {{-- •	Networktrafficint121ISPCyberplus (WAN switch)    --}}
-            <div class="col-6">
+            {{-- <div class="col-6">
                 <div class="card">
                     <div class="card-header" style="padding: 5px">
 
@@ -1155,11 +1155,11 @@
 
                 // Perbarui grafik setiap 5 detik
                 setInterval(updateChart, 15000);
-            </script>
+            </script> --}}
 
 
             {{-- •	Networktrafficint112ISPLinknet (WAN switch)    --}}
-            <div class="col-6">
+            {{-- <div class="col-6">
                 <div class="card">
                     <div class="card-header" style="padding: 5px">
 
@@ -1284,7 +1284,7 @@
 
                 // Perbarui grafik setiap 5 detik
                 setInterval(updateChart, 15000);
-            </script>
+            </script> --}}
 
         </div>
     </div>

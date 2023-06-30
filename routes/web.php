@@ -85,8 +85,8 @@ Route::middleware(['auth'])->group(function () {
   Route::get('Networktrafficint143DownlinkHall3', [SwitchController::class, 'Networktrafficint143DownlinkHall3'])->name('Networktrafficint143DownlinkHall3');
   Route::get('Networktrafficint131DownlinkSmalloffice1', [SwitchController::class, 'Networktrafficint131DownlinkSmalloffice1'])->name('Networktrafficint131DownlinkSmalloffice1');
   Route::get('Networktrafficint132DownlinkSmalloffice2', [SwitchController::class, 'Networktrafficint132DownlinkSmalloffice2'])->name('Networktrafficint132DownlinkSmalloffice2');
-  Route::get('Networktrafficint121ISPCyberplus', [SwitchController::class, 'Networktrafficint121ISPCyberplus'])->name('Networktrafficint121ISPCyberplus');
-  Route::get('Networktrafficint112ISPLinknet', [SwitchController::class, 'Networktrafficint112ISPLinknet'])->name('Networktrafficint112ISPLinknet');
+  // Route::get('Networktrafficint121ISPCyberplus', [SwitchController::class, 'Networktrafficint121ISPCyberplus'])->name('Networktrafficint121ISPCyberplus');
+  // Route::get('Networktrafficint112ISPLinknet', [SwitchController::class, 'Networktrafficint112ISPLinknet'])->name('Networktrafficint112ISPLinknet');
   
   // GET API FIREWALL
   Route::get('CurrentRAMUsage', [FirewallController::class, 'CurrentRAMUsage'])->name('CurrentRAMUsage');

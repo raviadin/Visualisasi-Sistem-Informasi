@@ -49,7 +49,7 @@
         <!-- Main Sidebar Container -->
         @include('layouts.side')
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper"  style="background:#636466">
+        <div class="content-wrapper"  style="background:#666563">
   
 
             <!-- Main content -->
@@ -60,11 +60,8 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>Copyright &copy; 2023 <a href="https://xapiens.id/id/">Xapiens.id</a></strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-                Created by <b>Raviadin Nugroho</b>
-            </div>
+            <strong>Copyright &copy; 2023</strong>
+            Created by <b>Raviadin Nugroho</b>
         </footer>
 
         <!-- Control Sidebar -->
