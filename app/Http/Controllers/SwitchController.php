@@ -15,7 +15,7 @@ class SwitchController extends Controller
         $currentTime = time();
         $oneHourAgo = $currentTime - (1 * 60 * 60); // 1 jam sebelumnya
 
-        //•	Network traffic int 1/1/2 Uplink Firewall (core switch)  
+        //•	Ping Core Switch  
         $itemResponse = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -24,7 +24,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => ['69551', '69644'], // Ganti dengan item ID yang sesuai
+                    'itemid' => '64581', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -43,6 +43,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 "itemids" =>  $itemIds,
+                'history' => 0,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -73,7 +74,7 @@ class SwitchController extends Controller
             ];
         }
 
-        //•	Network traffic int 1/4/1 Downlink Main Office (core switch)  
+        //•	Ping Access Switch Main Office  
         $itemResponse1 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -82,7 +83,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => ['65037', '65130'], // Ganti dengan item ID yang sesuai
+                    'itemid' => '71427', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -101,6 +102,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 "itemids" =>  $itemIds1,
+                'history' => 0,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -131,7 +133,7 @@ class SwitchController extends Controller
             ];
         }
 
-        //•	Network traffic int 1/2/1 Downlink Hall 1 (core switch) 
+        //•	Ping Access Switch Hall 1 
         $itemResponse2 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -140,7 +142,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => ['69575', '69668'], // Ganti dengan item ID yang sesuai
+                    'itemid' => '60052', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -159,6 +161,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 "itemids" =>  $itemIds2,
+                'history' => 0,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -189,7 +192,7 @@ class SwitchController extends Controller
             ];
         }
 
-        //•	Network traffic int 1/2/2 Downlink Workshop (core switch) 
+        //•	Ping Access Switch Workshop 
         $itemResponse3 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -198,7 +201,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => ['69576', '69669'], // Ganti dengan item ID yang sesuai
+                    'itemid' => '64025', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -217,6 +220,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 "itemids" =>  $itemIds3,
+                'history' => 0,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -247,7 +251,7 @@ class SwitchController extends Controller
             ];
         }
 
-        //•	Network traffic int 1/4/2 Downlink Hall 2 (core switch)
+        //•	Ping Access Switch Hall 2
         $itemResponse4 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -256,7 +260,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => ['69584', '69677'], // Ganti dengan item ID yang sesuai
+                    'itemid' => '72761', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -275,6 +279,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 "itemids" =>  $itemIds4,
+                'history' => 0,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -305,7 +310,7 @@ class SwitchController extends Controller
             ];
         }
 
-        //•	Network traffic int 1/4/3 Downlink Hall 3 (core switch)
+        //•	Ping Access Switch Hall 3
         $itemResponse5 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -314,7 +319,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => ['69585', '69678'], // Ganti dengan item ID yang sesuai
+                    'itemid' => '61110', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -333,6 +338,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 "itemids" =>  $itemIds5,
+                'history' => 0,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -363,7 +369,8 @@ class SwitchController extends Controller
             ];
         }
 
-        //•	Network traffic int 1/3/1 Downlink Small office 1(core switch)
+        
+        //•	Ping Access Switch Small Office Area 1
         $itemResponse6 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -372,7 +379,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => ['69579', '69672'], // Ganti dengan item ID yang sesuai
+                    'itemid' => '63254', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -391,6 +398,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 "itemids" =>  $itemIds6,
+                'history' => 0,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -422,7 +430,7 @@ class SwitchController extends Controller
         }
         
 
-        //•	Network traffic int 1/3/2 Downlink Small office 2(core switch)
+        //•	Ping Access Switch Small Office Area 2
         $itemResponse7 = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -431,7 +439,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => ['69580', '69673'], // Ganti dengan item ID yang sesuai
+                    'itemid' => '63983', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -450,6 +458,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 "itemids" =>  $itemIds7,
+                'history' => 0,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -480,132 +489,312 @@ class SwitchController extends Controller
             ];
         }
 
-        // //•	Network traffic int 1/2/1 ISP Cyberplus (WAN switch)
-        // $itemResponse8 = Http::withOptions([
-        //     'timeout' => 60,
-        // ])->post($url, [
-        //     'jsonrpc' => '2.0',
-        //     'method' => 'item.get',
-        //     'params' => [
-        //         'output' => 'extend',
-        //         'filter' => [
-        //             'itemid' => ['69843', '69853'], // Ganti dengan item ID yang sesuai
-        //         ],
-        //     ],
-        //     'auth' => $token,
-        //     'id' => 1,
-        // ]);
+        //•	Ping Access Switch Security Front
+        $itemResponse8 = Http::withOptions([
+            'timeout' => 60,
+        ])->post($url, [
+            'jsonrpc' => '2.0',
+            'method' => 'item.get',
+            'params' => [
+                'output' => 'extend',
+                'filter' => [
+                    'itemid' => '62999', // Ganti dengan item ID yang sesuai
+                ],
+            ],
+            'auth' => $token,
+            'id' => 1,
+        ]);
 
-        // $itemData8 = $itemResponse8->json();
-        // $itemIds8 = array_column($itemData8['result'], 'itemid');
+        $itemData8 = $itemResponse8->json();
+        $itemIds8 = array_column($itemData8['result'], 'itemid');
 
-        // // Panggil API Zabbix untuk mendapatkan riwayat berdasarkan item ID
-        // $historyResponse8 = Http::withOptions([
-        //     'timeout' => 60,
-        // ])->post($url, [
-        //     'jsonrpc' => '2.0',
-        //     'method' => 'history.get',
-        //     'params' => [
-        //         'output' => 'extend',
-        //         "itemids" =>  $itemIds8,
-        //         'sortfield' => 'clock',
-        //         'sortorder' => 'DESC',
-        //         'time_from' => $oneHourAgo,
-        //         'time_till' => $currentTime,
-        //     ],
-        //     'auth' => $token,
-        //     'id' => 1,
-        // ]);
+        // Panggil API Zabbix untuk mendapatkan riwayat berdasarkan item ID
+        $historyResponse8 = Http::withOptions([
+            'timeout' => 60,
+        ])->post($url, [
+            'jsonrpc' => '2.0',
+            'method' => 'history.get',
+            'params' => [
+                'output' => 'extend',
+                "itemids" =>  $itemIds8,
+                'history' => 0,
+                'sortfield' => 'clock',
+                'sortorder' => 'DESC',
+                'time_from' => $oneHourAgo,
+                'time_till' => $currentTime,
+            ],
+            'auth' => $token,
+            'id' => 1,
+        ]);
 
-        // $historyData8 = $historyResponse8->json();
+        $historyData8 = $historyResponse8->json();
 
-        // $data8 =  [
-        //     'items' => $itemData8['result'],
-        //     'history' => $historyData8['result'],
-        // ];
+        $data8 =  [
+            'items' => $itemData8['result'],
+            'history' => $historyData8['result'],
+        ];
 
-        // // Mengolah data untuk chart
-        // $chartData8 = [];
-        // foreach ($itemData8['result'] as $item8) {
-        //     $itemId8 = $item8['itemid'];
-        //     $itemName8 = $item8['name'];
-        //     $itemHistory8 = array_filter($historyData8['result'], function ($history8) use ($itemId8) {
-        //         return $history8['itemid'] == $itemId8;
-        //     });
-        //     $chartData8[] = [
-        //         'name' => $itemName8,
-        //         'data' => array_column($itemHistory8, 'value'),
-        //     ];
-        // }
+        // Mengolah data untuk chart
+        $chartData8 = [];
+        foreach ($itemData8['result'] as $item8) {
+            $itemId8 = $item8['itemid'];
+            $itemName8 = $item8['name'];
+            $itemHistory8 = array_filter($historyData8['result'], function ($history8) use ($itemId8) {
+                return $history8['itemid'] == $itemId8;
+            });
+            $chartData8[] = [
+                'name' => $itemName8,
+                'data' => array_column($itemHistory8, 'value'),
+            ];
+        }
 
-        // //•	Network traffic int 1/1/2 ISP Linknet (WAN switch)
-        // $itemResponse9 = Http::withOptions([
-        //     'timeout' => 60,
-        // ])->post($url, [
-        //     'jsonrpc' => '2.0',
-        //     'method' => 'item.get',
-        //     'params' => [
-        //         'output' => 'extend',
-        //         'filter' => [
-        //             'itemid' => ['69873', '69883'], // Ganti dengan item ID yang sesuai
-        //         ],
-        //     ],
-        //     'auth' => $token,
-        //     'id' => 1,
-        // ]);
+        //•	Ping Access Switch Security Side
+        $itemResponse9 = Http::withOptions([
+            'timeout' => 60,
+        ])->post($url, [
+            'jsonrpc' => '2.0',
+            'method' => 'item.get',
+            'params' => [
+                'output' => 'extend',
+                'filter' => [
+                    'itemid' => '63041', // Ganti dengan item ID yang sesuai
+                ],
+            ],
+            'auth' => $token,
+            'id' => 1,
+        ]);
 
-        // $itemData9 = $itemResponse9->json();
-        // $itemIds9 = array_column($itemData9['result'], 'itemid');
+        $itemData9 = $itemResponse9->json();
+        $itemIds9 = array_column($itemData9['result'], 'itemid');
 
-        // // Panggil API Zabbix untuk mendapatkan riwayat berdasarkan item ID
-        // $historyResponse9 = Http::withOptions([
-        //     'timeout' => 60,
-        // ])->post($url, [
-        //     'jsonrpc' => '2.0',
-        //     'method' => 'history.get',
-        //     'params' => [
-        //         'output' => 'extend',
-        //         "itemids" =>  $itemIds9,
-        //         'sortfield' => 'clock',
-        //         'sortorder' => 'DESC',
-        //         'time_from' => $oneHourAgo,
-        //         'time_till' => $currentTime,
-        //     ],
-        //     'auth' => $token,
-        //     'id' => 1,
-        // ]);
+        // Panggil API Zabbix untuk mendapatkan riwayat berdasarkan item ID
+        $historyResponse9 = Http::withOptions([
+            'timeout' => 60,
+        ])->post($url, [
+            'jsonrpc' => '2.0',
+            'method' => 'history.get',
+            'params' => [
+                'output' => 'extend',
+                "itemids" =>  $itemIds9,
+                'history' => 0,
+                'sortfield' => 'clock',
+                'sortorder' => 'DESC',
+                'time_from' => $oneHourAgo,
+                'time_till' => $currentTime,
+            ],
+            'auth' => $token,
+            'id' => 1,
+        ]);
 
-        // $historyData9 = $historyResponse9->json();
+        $historyData9 = $historyResponse9->json();
 
-        // $data9 =  [
-        //     'items' => $itemData9['result'],
-        //     'history' => $historyData9['result'],
-        // ];
+        $data9 =  [
+            'items' => $itemData9['result'],
+            'history' => $historyData9['result'],
+        ];
 
-        // // Mengolah data untuk chart
-        // $chartData9 = [];
-        // foreach ($itemData9['result'] as $item9) {
-        //     $itemId9 = $item9['itemid'];
-        //     $itemName9 = $item9['name'];
-        //     $itemHistory9 = array_filter($historyData9['result'], function ($history9) use ($itemId9) {
-        //         return $history9['itemid'] == $itemId9;
-        //     });
-        //     $chartData9[] = [
-        //         'name' => $itemName9,
-        //         'data' => array_column($itemHistory9, 'value'),
-        //     ];
-        // }
+        // Mengolah data untuk chart
+        $chartData9 = [];
+        foreach ($itemData9['result'] as $item9) {
+            $itemId9 = $item9['itemid'];
+            $itemName9 = $item9['name'];
+            $itemHistory9 = array_filter($historyData9['result'], function ($history9) use ($itemId9) {
+                return $history9['itemid'] == $itemId9;
+            });
+            $chartData9[] = [
+                'name' => $itemName9,
+                'data' => array_column($itemHistory9, 'value'),
+            ];
+        }
+
+        //•	Ping Server Farm Switch
+        $itemResponse10 = Http::withOptions([
+            'timeout' => 60,
+        ])->post($url, [
+            'jsonrpc' => '2.0',
+            'method' => 'item.get',
+            'params' => [
+                'output' => 'extend',
+                'filter' => [
+                    'itemid' => '65885', // Ganti dengan item ID yang sesuai
+                ],
+            ],
+            'auth' => $token,
+            'id' => 1,
+        ]);
+
+        $itemData10 = $itemResponse10->json();
+        $itemIds10 = array_column($itemData10['result'], 'itemid');
+
+        // Panggil API Zabbix untuk mendapatkan riwayat berdasarkan item ID
+        $historyResponse10 = Http::withOptions([
+            'timeout' => 60,
+        ])->post($url, [
+            'jsonrpc' => '2.0',
+            'method' => 'history.get',
+            'params' => [
+                'output' => 'extend',
+                "itemids" =>  $itemIds10,
+                'history' => 0,
+                'sortfield' => 'clock',
+                'sortorder' => 'DESC',
+                'time_from' => $oneHourAgo,
+                'time_till' => $currentTime,
+            ],
+            'auth' => $token,
+            'id' => 1,
+        ]);
+
+        $historyData10 = $historyResponse10->json();
+
+        $data10 =  [
+            'items' => $itemData10['result'],
+            'history' => $historyData10['result'],
+        ];
+
+        // Mengolah data untuk chart
+        $chartData10 = [];
+        foreach ($itemData10['result'] as $item10) {
+            $itemId10 = $item10['itemid'];
+            $itemName10 = $item10['name'];
+            $itemHistory10 = array_filter($historyData10['result'], function ($history10) use ($itemId10) {
+                return $history10['itemid'] == $itemId10;
+            });
+            $chartData10[] = [
+                'name' => $itemName,
+                'data' => array_column($itemHistory, 'value'),
+            ];
+        }
+
+        //•	Ping WAN Distribution Switch ISP Cyberplus
+        $itemResponse11 = Http::withOptions([
+            'timeout' => 60,
+        ])->post($url, [
+            'jsonrpc' => '2.0',
+            'method' => 'item.get',
+            'params' => [
+                'output' => 'extend',
+                'filter' => [
+                    'itemid' => '64925', // Ganti dengan item ID yang sesuai
+                ],
+            ],
+            'auth' => $token,
+            'id' => 1,
+        ]);
+
+        $itemData11 = $itemResponse11->json();
+        $itemIds11 = array_column($itemData11['result'], 'itemid');
+
+        // Panggil API Zabbix untuk mendapatkan riwayat berdasarkan item ID
+        $historyResponse11 = Http::withOptions([
+            'timeout' => 60,
+        ])->post($url, [
+            'jsonrpc' => '2.0',
+            'method' => 'history.get',
+            'params' => [
+                'output' => 'extend',
+                "itemids" =>  $itemIds11,
+                'history' => 0,
+                'sortfield' => 'clock',
+                'sortorder' => 'DESC',
+                'time_from' => $oneHourAgo,
+                'time_till' => $currentTime,
+            ],
+            'auth' => $token,
+            'id' => 1,
+        ]);
+
+        $historyData11 = $historyResponse11->json();
+
+        $data11 =  [
+            'items' => $itemData11['result'],
+            'history' => $historyData11['result'],
+        ];
+
+        // Mengolah data untuk chart
+        $chartData11 = [];
+        foreach ($itemData11['result'] as $item11) {
+            $itemId11 = $item11['itemid'];
+            $itemName11 = $item11['name'];
+            $itemHistory11 = array_filter($historyData11['result'], function ($history11) use ($itemId11) {
+                return $history11['itemid'] == $itemId11;
+            });
+            $chartData11[] = [
+                'name' => $itemName,
+                'data' => array_column($itemHistory, 'value'),
+            ];
+        }
+        
+        
+        //•	Ping WAN Distribution Switch ISP Linknet
+        $itemResponse12 = Http::withOptions([
+            'timeout' => 60,
+        ])->post($url, [
+            'jsonrpc' => '2.0',
+            'method' => 'item.get',
+            'params' => [
+                'output' => 'extend',
+                'filter' => [
+                    'itemid' => '65843', // Ganti dengan item ID yang sesuai
+                ],
+            ],
+            'auth' => $token,
+            'id' => 1,
+        ]);
+
+        $itemData12 = $itemResponse12->json();
+        $itemIds12 = array_column($itemData12['result'], 'itemid');
+
+        // Panggil API Zabbix untuk mendapatkan riwayat berdasarkan item ID
+        $historyResponse12 = Http::withOptions([
+            'timeout' => 60,
+        ])->post($url, [
+            'jsonrpc' => '2.0',
+            'method' => 'history.get',
+            'params' => [
+                'output' => 'extend',
+                "itemids" =>  $itemIds12,
+                'history' => 0,
+                'sortfield' => 'clock',
+                'sortorder' => 'DESC',
+                'time_from' => $oneHourAgo,
+                'time_till' => $currentTime,
+            ],
+            'auth' => $token,
+            'id' => 1,
+        ]);
+
+        $historyData12 = $historyResponse12->json();
+
+        $data12 =  [
+            'items' => $itemData12['result'],
+            'history' => $historyData12['result'],
+        ];
+
+        // Mengolah data untuk chart
+        $chartData12 = [];
+        foreach ($itemData12['result'] as $item12) {
+            $itemId12 = $item12['itemid'];
+            $itemName12 = $item12['name'];
+            $itemHistory12 = array_filter($historyData12['result'], function ($history12) use ($itemId12) {
+                return $history12['itemid'] == $itemId12;
+            });
+            $chartData12[] = [
+                'name' => $itemName,
+                'data' => array_column($itemHistory, 'value'),
+            ];
+        }
         
 
-        return view('switch', compact('chartData', 'chartData1', 'chartData2', 'chartData3', 'chartData4', 'chartData5', 'chartData6', 'chartData7'));
+        return view('switch', compact('chartData', 'chartData1', 'chartData2', 'chartData3', 'chartData4', 'chartData5', 'chartData6', 'chartData7', 'chartData8', 'chartData9', 'chartData10',  'chartData11', 'chartData12'));
     }
 
-    public function Networktrafficint112Uplink()
+    public function PingCoreSwitch()
     {
         $url = env('ZABBIX_API_URL');
         $token = env('ZABBIX_API_TOKEN');
 
-        // Networktrafficint112Uplink
+        // Ping Core Switch
         $itemRes = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -614,7 +803,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => ['69551', '69644'], // Ganti dengan item ID yang sesuai
+                    'itemid' => '64581', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -635,6 +824,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'itemids' => $itemIds,
+                'history' => 0,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -680,12 +870,12 @@ class SwitchController extends Controller
     }
 
 
-    public function Networktrafficint141DownlinkMainOffice()
+    public function PingAccessSwitchMainOffice()
     {
         $url = env('ZABBIX_API_URL');
         $token = env('ZABBIX_API_TOKEN');
 
-        // Networktrafficint141DownlinkMainOffice
+        // PingAccessSwitchMainOffice
         $itemRes = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -694,7 +884,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => ['65037', '65130'], // Ganti dengan item ID yang sesuai
+                    'itemid' => '71427', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -715,6 +905,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'itemids' => $itemIds,
+                'history' => 0,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -759,7 +950,7 @@ class SwitchController extends Controller
         return response()->json($chartData);
     }
 
-    public function Networktrafficint121DownlinkHall1()
+    public function PingAccessSwitchHall1()
     {
         $url = env('ZABBIX_API_URL');
         $token = env('ZABBIX_API_TOKEN');
@@ -773,7 +964,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => ['69575', '69668'], // Ganti dengan item ID yang sesuai
+                    'itemid' => '60052', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -794,6 +985,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'itemids' => $itemIds,
+                'history' => 0,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -839,7 +1031,7 @@ class SwitchController extends Controller
     }
 
 
-    public function Networktrafficint122DownlinkWorkshop()
+    public function PingAccessSwitchWorkshop()
     {
         $url = env('ZABBIX_API_URL');
         $token = env('ZABBIX_API_TOKEN');
@@ -853,7 +1045,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => ['69576', '69669'], // Ganti dengan item ID yang sesuai
+                    'itemid' => '64025', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -874,6 +1066,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'itemids' => $itemIds,
+                'history' => 0,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -919,12 +1112,12 @@ class SwitchController extends Controller
     }
 
 
-    public function Networktrafficint142DownlinkHall2()
+    public function PingAccessSwitchHall2()
     {
         $url = env('ZABBIX_API_URL');
         $token = env('ZABBIX_API_TOKEN');
 
-        // Networktrafficint142DownlinkHall2
+        // PingAccessSwitchHall2
         $itemRes = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -933,7 +1126,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => ['69584', '69677'], // Ganti dengan item ID yang sesuai
+                    'itemid' => '72761', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -954,6 +1147,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'itemids' => $itemIds,
+                'history' => 0,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -998,12 +1192,12 @@ class SwitchController extends Controller
         return response()->json($chartData);
     }
 
-    public function Networktrafficint143DownlinkHall3()
+    public function PingAccessSwitchHall3()
     {
         $url = env('ZABBIX_API_URL');
         $token = env('ZABBIX_API_TOKEN');
 
-        // Networktrafficint143DownlinkHall3
+        // PingAccessSwitchHall3
         $itemRes = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -1012,7 +1206,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => ['69585', '69678'], // Ganti dengan item ID yang sesuai
+                    'itemid' => '61110', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -1033,6 +1227,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'itemids' => $itemIds,
+                'history' => 0,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -1078,12 +1273,12 @@ class SwitchController extends Controller
     }
 
 
-    public function Networktrafficint131DownlinkSmalloffice1()
+    public function PingAccessSwitchSmallOfficeArea1()
     {
         $url = env('ZABBIX_API_URL');
         $token = env('ZABBIX_API_TOKEN');
 
-        // Networktrafficint131DownlinkSmalloffice1
+        // PingAccessSwitchSmallOfficeArea1
         $itemRes = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -1092,7 +1287,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => ['69579', '69672'], // Ganti dengan item ID yang sesuai
+                    'itemid' => '63254', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -1113,6 +1308,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'itemids' => $itemIds,
+                'history' => 0,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -1158,12 +1354,12 @@ class SwitchController extends Controller
     }
 
 
-    public function Networktrafficint132DownlinkSmalloffice2()
+    public function PingAccessSwitchSmallOfficeArea2()
     {
         $url = env('ZABBIX_API_URL');
         $token = env('ZABBIX_API_TOKEN');
 
-        // Networktrafficint132DownlinkSmalloffice2
+        // PingAccessSwitchSmallOfficeArea1
         $itemRes = Http::withOptions([
             'timeout' => 60,
         ])->post($url, [
@@ -1172,7 +1368,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => ['69580', '69673'], // Ganti dengan item ID yang sesuai
+                    'itemid' => '63983', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -1193,6 +1389,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'itemids' => $itemIds,
+                'history' => 0,
                 'sortfield' => 'clock',
                 'sortorder' => 'DESC',
                 'time_from' => $oneHourAgo,
@@ -1238,163 +1435,406 @@ class SwitchController extends Controller
     }
 
 
-    // public function Networktrafficint121ISPCyberplus()
-    // {
-    //     $url = env('ZABBIX_API_URL');
-    //     $token = env('ZABBIX_API_TOKEN');
+    public function PingAccessSwitchSecurityFront()
+    {
+        $url = env('ZABBIX_API_URL');
+        $token = env('ZABBIX_API_TOKEN');
 
-    //     // Networktrafficint121ISPCyberplus
-    //     $itemRes = Http::withOptions([
-    //         'timeout' => 60,
-    //     ])->post($url, [
-    //         'jsonrpc' => '2.0',
-    //         'method' => 'item.get',
-    //         'params' => [
-    //             'output' => 'extend',
-    //             'filter' => [
-    //                 'itemid' => ['69843', '69853'], // Ganti dengan item ID yang sesuai
-    //             ],
-    //         ],
-    //         'auth' => $token,
-    //         'id' => 1,
-    //     ]);
+        // PingAccessSwitchSecurityFront
+        $itemRes = Http::withOptions([
+            'timeout' => 60,
+        ])->post($url, [
+            'jsonrpc' => '2.0',
+            'method' => 'item.get',
+            'params' => [
+                'output' => 'extend',
+                'filter' => [
+                    'itemid' => '62999', // Ganti dengan item ID yang sesuai
+                ],
+            ],
+            'auth' => $token,
+            'id' => 1,
+        ]);
 
-    //     $itemData = $itemRes->json();
-    //     $itemIds = array_column($itemData['result'], 'itemid');
+        $itemData = $itemRes->json();
+        $itemIds = array_column($itemData['result'], 'itemid');
 
-    //     // Mengumpulkan riwayat berdasarkan item ID
-    //     $currentTime = time();
-    //     $oneHourAgo = $currentTime - (1 * 60 * 60); // 1 jam sebelumnya
-    //     $historyResponse = Http::withOptions([
-    //         'timeout' => 60,
-    //     ])->post($url, [
-    //         'jsonrpc' => '2.0',
-    //         'method' => 'history.get',
-    //         'params' => [
-    //             'output' => 'extend',
-    //             'itemids' => $itemIds,
-    //             'sortfield' => 'clock',
-    //             'sortorder' => 'DESC',
-    //             'time_from' => $oneHourAgo,
-    //             'time_till' => $currentTime,
-    //         ],
-    //         'auth' => $token,
-    //         'id' => 1,
-    //     ]);
+        // Mengumpulkan riwayat berdasarkan item ID
+        $currentTime = time();
+        $oneHourAgo = $currentTime - (1 * 60 * 60); // 1 jam sebelumnya
+        $historyResponse = Http::withOptions([
+            'timeout' => 60,
+        ])->post($url, [
+            'jsonrpc' => '2.0',
+            'method' => 'history.get',
+            'params' => [
+                'output' => 'extend',
+                'itemids' => $itemIds,
+                'history' => 0,
+                'sortfield' => 'clock',
+                'sortorder' => 'DESC',
+                'time_from' => $oneHourAgo,
+                'time_till' => $currentTime,
+            ],
+            'auth' => $token,
+            'id' => 1,
+        ]);
 
-    //     $historyData = $historyResponse->json();
+        $historyData = $historyResponse->json();
 
-    //     // Mengolah data untuk chart
-    //     $chartDataa = [];
-    //     foreach ($itemData['result'] as $item) {
+        // Mengolah data untuk chart
+        $chartDataa = [];
+        foreach ($itemData['result'] as $item) {
 
-    //         $itemId = $item['itemid'];
-    //         $itemName = $item['name'];
+            $itemId = $item['itemid'];
+            $itemName = $item['name'];
 
-    //         $itemHistory = array_filter($historyData['result'], function ($history) use ($itemId) {
-    //             return $history['itemid'] == $itemId;
-    //         });
+            $itemHistory = array_filter($historyData['result'], function ($history) use ($itemId) {
+                return $history['itemid'] == $itemId;
+            });
 
-    //         // Batasi jumlah data riwayat menjadi 30
-    //         $itemHistory = array_slice($itemHistory, 0);
+            // Batasi jumlah data riwayat menjadi 30
+            $itemHistory = array_slice($itemHistory, 0);
 
-    //         $labels = [];
-    //         $values = [];
+            $labels = [];
+            $values = [];
 
-    //         foreach ($itemHistory as $history) {
-    //             $labels[] = date('H:i', $history['clock']);
-    //             $values[] = floatval($history['value']);
-    //         }
+            foreach ($itemHistory as $history) {
+                $labels[] = date('H:i', $history['clock']);
+                $values[] = floatval($history['value']);
+            }
 
-    //         $chartData[] = [
-    //             'name' => $itemName,
-    //             'labels' => $labels,
-    //             'values' => $values,
+            $chartData[] = [
+                'name' => $itemName,
+                'labels' => $labels,
+                'values' => $values,
 
-    //         ];
-    //     }
+            ];
+        }
 
-    //     return response()->json($chartData);
-    // }
+        return response()->json($chartData);
+    }
 
-    // public function Networktrafficint112ISPLinknet()
-    // {
-    //     $url = env('ZABBIX_API_URL');
-    //     $token = env('ZABBIX_API_TOKEN');
+    public function PingAccessSwitchSecuritySide()
+    {
+        $url = env('ZABBIX_API_URL');
+        $token = env('ZABBIX_API_TOKEN');
 
-    //     // Networktrafficint112ISPLinknet
-    //     $itemRes = Http::withOptions([
-    //         'timeout' => 60,
-    //     ])->post($url, [
-    //         'jsonrpc' => '2.0',
-    //         'method' => 'item.get',
-    //         'params' => [
-    //             'output' => 'extend',
-    //             'filter' => [
-    //                 'itemid' => ['69873', '69883'], // Ganti dengan item ID yang sesuai
-    //             ],
-    //         ],
-    //         'auth' => $token,
-    //         'id' => 1,
-    //     ]);
+        // PingAccessSwitchSecuritySide
+        $itemRes = Http::withOptions([
+            'timeout' => 60,
+        ])->post($url, [
+            'jsonrpc' => '2.0',
+            'method' => 'item.get',
+            'params' => [
+                'output' => 'extend',
+                'filter' => [
+                    'itemid' => '63041', // Ganti dengan item ID yang sesuai
+                ],
+            ],
+            'auth' => $token,
+            'id' => 1,
+        ]);
 
-    //     $itemData = $itemRes->json();
-    //     $itemIds = array_column($itemData['result'], 'itemid');
+        $itemData = $itemRes->json();
+        $itemIds = array_column($itemData['result'], 'itemid');
 
-    //     // Mengumpulkan riwayat berdasarkan item ID
-    //     $currentTime = time();
-    //     $oneHourAgo = $currentTime - (1 * 60 * 60); // 1 jam sebelumnya
-    //     $historyResponse = Http::withOptions([
-    //         'timeout' => 60,
-    //     ])->post($url, [
-    //         'jsonrpc' => '2.0',
-    //         'method' => 'history.get',
-    //         'params' => [
-    //             'output' => 'extend',
-    //             'itemids' => $itemIds,
-    //             'sortfield' => 'clock',
-    //             'sortorder' => 'DESC',
-    //             'time_from' => $oneHourAgo,
-    //             'time_till' => $currentTime,
-    //         ],
-    //         'auth' => $token,
-    //         'id' => 1,
-    //     ]);
+        // Mengumpulkan riwayat berdasarkan item ID
+        $currentTime = time();
+        $oneHourAgo = $currentTime - (1 * 60 * 60); // 1 jam sebelumnya
+        $historyResponse = Http::withOptions([
+            'timeout' => 60,
+        ])->post($url, [
+            'jsonrpc' => '2.0',
+            'method' => 'history.get',
+            'params' => [
+                'output' => 'extend',
+                'itemids' => $itemIds,
+                'history' => 0,
+                'sortfield' => 'clock',
+                'sortorder' => 'DESC',
+                'time_from' => $oneHourAgo,
+                'time_till' => $currentTime,
+            ],
+            'auth' => $token,
+            'id' => 1,
+        ]);
 
-    //     $historyData = $historyResponse->json();
+        $historyData = $historyResponse->json();
 
-    //     // Mengolah data untuk chart
-    //     $chartDataa = [];
-    //     foreach ($itemData['result'] as $item) {
+        // Mengolah data untuk chart
+        $chartDataa = [];
+        foreach ($itemData['result'] as $item) {
 
-    //         $itemId = $item['itemid'];
-    //         $itemName = $item['name'];
+            $itemId = $item['itemid'];
+            $itemName = $item['name'];
 
-    //         $itemHistory = array_filter($historyData['result'], function ($history) use ($itemId) {
-    //             return $history['itemid'] == $itemId;
-    //         });
+            $itemHistory = array_filter($historyData['result'], function ($history) use ($itemId) {
+                return $history['itemid'] == $itemId;
+            });
 
-    //         // Batasi jumlah data riwayat menjadi 30
-    //         $itemHistory = array_slice($itemHistory, 0);
+            // Batasi jumlah data riwayat menjadi 30
+            $itemHistory = array_slice($itemHistory, 0);
 
-    //         $labels = [];
-    //         $values = [];
+            $labels = [];
+            $values = [];
 
-    //         foreach ($itemHistory as $history) {
-    //             $labels[] = date('H:i', $history['clock']);
-    //             $values[] = floatval($history['value']);
-    //         }
+            foreach ($itemHistory as $history) {
+                $labels[] = date('H:i', $history['clock']);
+                $values[] = floatval($history['value']);
+            }
 
-    //         $chartData[] = [
-    //             'name' => $itemName,
-    //             'labels' => $labels,
-    //             'values' => $values,
+            $chartData[] = [
+                'name' => $itemName,
+                'labels' => $labels,
+                'values' => $values,
 
-    //         ];
-    //     }
+            ];
+        }
 
-    //     return response()->json($chartData);
-    // }
+        return response()->json($chartData);
+    }
+
+    public function PingServerFarmSwitch()
+    {
+        $url = env('ZABBIX_API_URL');
+        $token = env('ZABBIX_API_TOKEN');
+
+        // PingServerFarmSwitch
+        $itemRes = Http::withOptions([
+            'timeout' => 60,
+        ])->post($url, [
+            'jsonrpc' => '2.0',
+            'method' => 'item.get',
+            'params' => [
+                'output' => 'extend',
+                'filter' => [
+                    'itemid' => '65885', // Ganti dengan item ID yang sesuai
+                ],
+            ],
+            'auth' => $token,
+            'id' => 1,
+        ]);
+
+        $itemData = $itemRes->json();
+        $itemIds = array_column($itemData['result'], 'itemid');
+
+        // Mengumpulkan riwayat berdasarkan item ID
+        $currentTime = time();
+        $oneHourAgo = $currentTime - (1 * 60 * 60); // 1 jam sebelumnya
+        $historyResponse = Http::withOptions([
+            'timeout' => 60,
+        ])->post($url, [
+            'jsonrpc' => '2.0',
+            'method' => 'history.get',
+            'params' => [
+                'output' => 'extend',
+                'itemids' => $itemIds,
+                'history' => 0,
+                'sortfield' => 'clock',
+                'sortorder' => 'DESC',
+                'time_from' => $oneHourAgo,
+                'time_till' => $currentTime,
+            ],
+            'auth' => $token,
+            'id' => 1,
+        ]);
+
+        $historyData = $historyResponse->json();
+
+        // Mengolah data untuk chart
+        $chartDataa = [];
+        foreach ($itemData['result'] as $item) {
+
+            $itemId = $item['itemid'];
+            $itemName = $item['name'];
+
+            $itemHistory = array_filter($historyData['result'], function ($history) use ($itemId) {
+                return $history['itemid'] == $itemId;
+            });
+
+            // Batasi jumlah data riwayat menjadi 30
+            $itemHistory = array_slice($itemHistory, 0);
+
+            $labels = [];
+            $values = [];
+
+            foreach ($itemHistory as $history) {
+                $labels[] = date('H:i', $history['clock']);
+                $values[] = floatval($history['value']);
+            }
+
+            $chartData[] = [
+                'name' => $itemName,
+                'labels' => $labels,
+                'values' => $values,
+
+            ];
+        }
+
+        return response()->json($chartData);
+    }
+
+    public function PingWANDistributionSwitchISPCyberplus()
+    {
+        $url = env('ZABBIX_API_URL');
+        $token = env('ZABBIX_API_TOKEN');
+
+        // PingWANDistributionSwitchISPCyberplus
+        $itemRes = Http::withOptions([
+            'timeout' => 60,
+        ])->post($url, [
+            'jsonrpc' => '2.0',
+            'method' => 'item.get',
+            'params' => [
+                'output' => 'extend',
+                'filter' => [
+                    'itemid' => '64925', // Ganti dengan item ID yang sesuai
+                ],
+            ],
+            'auth' => $token,
+            'id' => 1,
+        ]);
+
+        $itemData = $itemRes->json();
+        $itemIds = array_column($itemData['result'], 'itemid');
+
+        // Mengumpulkan riwayat berdasarkan item ID
+        $currentTime = time();
+        $oneHourAgo = $currentTime - (1 * 60 * 60); // 1 jam sebelumnya
+        $historyResponse = Http::withOptions([
+            'timeout' => 60,
+        ])->post($url, [
+            'jsonrpc' => '2.0',
+            'method' => 'history.get',
+            'params' => [
+                'output' => 'extend',
+                'itemids' => $itemIds,
+                'history' => 0,
+                'sortfield' => 'clock',
+                'sortorder' => 'DESC',
+                'time_from' => $oneHourAgo,
+                'time_till' => $currentTime,
+            ],
+            'auth' => $token,
+            'id' => 1,
+        ]);
+
+        $historyData = $historyResponse->json();
+
+        // Mengolah data untuk chart
+        $chartDataa = [];
+        foreach ($itemData['result'] as $item) {
+
+            $itemId = $item['itemid'];
+            $itemName = $item['name'];
+
+            $itemHistory = array_filter($historyData['result'], function ($history) use ($itemId) {
+                return $history['itemid'] == $itemId;
+            });
+
+            // Batasi jumlah data riwayat menjadi 30
+            $itemHistory = array_slice($itemHistory, 0);
+
+            $labels = [];
+            $values = [];
+
+            foreach ($itemHistory as $history) {
+                $labels[] = date('H:i', $history['clock']);
+                $values[] = floatval($history['value']);
+            }
+
+            $chartData[] = [
+                'name' => $itemName,
+                'labels' => $labels,
+                'values' => $values,
+
+            ];
+        }
+
+        return response()->json($chartData);
+    }
+
+    public function PingWANDistributionSwitchISPLinknet()
+    {
+        $url = env('ZABBIX_API_URL');
+        $token = env('ZABBIX_API_TOKEN');
+
+        // PingWANDistributionSwitchISPLinknet
+        $itemRes = Http::withOptions([
+            'timeout' => 60,
+        ])->post($url, [
+            'jsonrpc' => '2.0',
+            'method' => 'item.get',
+            'params' => [
+                'output' => 'extend',
+                'filter' => [
+                    'itemid' => '65843', // Ganti dengan item ID yang sesuai
+                ],
+            ],
+            'auth' => $token,
+            'id' => 1,
+        ]);
+
+        $itemData = $itemRes->json();
+        $itemIds = array_column($itemData['result'], 'itemid');
+
+        // Mengumpulkan riwayat berdasarkan item ID
+        $currentTime = time();
+        $oneHourAgo = $currentTime - (1 * 60 * 60); // 1 jam sebelumnya
+        $historyResponse = Http::withOptions([
+            'timeout' => 60,
+        ])->post($url, [
+            'jsonrpc' => '2.0',
+            'method' => 'history.get',
+            'params' => [
+                'output' => 'extend',
+                'itemids' => $itemIds,
+                'history' => 0,
+                'sortfield' => 'clock',
+                'sortorder' => 'DESC',
+                'time_from' => $oneHourAgo,
+                'time_till' => $currentTime,
+            ],
+            'auth' => $token,
+            'id' => 1,
+        ]);
+
+        $historyData = $historyResponse->json();
+
+        // Mengolah data untuk chart
+        $chartDataa = [];
+        foreach ($itemData['result'] as $item) {
+
+            $itemId = $item['itemid'];
+            $itemName = $item['name'];
+
+            $itemHistory = array_filter($historyData['result'], function ($history) use ($itemId) {
+                return $history['itemid'] == $itemId;
+            });
+
+            // Batasi jumlah data riwayat menjadi 30
+            $itemHistory = array_slice($itemHistory, 0);
+
+            $labels = [];
+            $values = [];
+
+            foreach ($itemHistory as $history) {
+                $labels[] = date('H:i', $history['clock']);
+                $values[] = floatval($history['value']);
+            }
+
+            $chartData[] = [
+                'name' => $itemName,
+                'labels' => $labels,
+                'values' => $values,
+
+            ];
+        }
+
+        return response()->json($chartData);
+    }
+
 
 
 }

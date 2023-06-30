@@ -77,16 +77,19 @@ Route::middleware(['auth'])->group(function () {
   
   
   // GET API SWITCH
-  Route::get('Networktrafficint112Uplink', [SwitchController::class, 'Networktrafficint112Uplink'])->name('Networktrafficint112Uplink');
-  Route::get('Networktrafficint141DownlinkMainOffice', [SwitchController::class, 'Networktrafficint141DownlinkMainOffice'])->name('Networktrafficint141DownlinkMainOffice');
-  Route::get('Networktrafficint121DownlinkHall1', [SwitchController::class, 'Networktrafficint121DownlinkHall1'])->name('Networktrafficint121DownlinkHall1');
-  Route::get('Networktrafficint122DownlinkWorkshop', [SwitchController::class, 'Networktrafficint122DownlinkWorkshop'])->name('Networktrafficint122DownlinkWorkshop');
-  Route::get('Networktrafficint142DownlinkHall2', [SwitchController::class, 'Networktrafficint142DownlinkHall2'])->name('Networktrafficint142DownlinkHall2');
-  Route::get('Networktrafficint143DownlinkHall3', [SwitchController::class, 'Networktrafficint143DownlinkHall3'])->name('Networktrafficint143DownlinkHall3');
-  Route::get('Networktrafficint131DownlinkSmalloffice1', [SwitchController::class, 'Networktrafficint131DownlinkSmalloffice1'])->name('Networktrafficint131DownlinkSmalloffice1');
-  Route::get('Networktrafficint132DownlinkSmalloffice2', [SwitchController::class, 'Networktrafficint132DownlinkSmalloffice2'])->name('Networktrafficint132DownlinkSmalloffice2');
-  // Route::get('Networktrafficint121ISPCyberplus', [SwitchController::class, 'Networktrafficint121ISPCyberplus'])->name('Networktrafficint121ISPCyberplus');
-  // Route::get('Networktrafficint112ISPLinknet', [SwitchController::class, 'Networktrafficint112ISPLinknet'])->name('Networktrafficint112ISPLinknet');
+  Route::get('PingCoreSwitch', [SwitchController::class, 'PingCoreSwitch'])->name('PingCoreSwitch');
+  Route::get('PingAccessSwitchMainOffice', [SwitchController::class, 'PingAccessSwitchMainOffice'])->name('PingAccessSwitchMainOffice');
+  Route::get('PingAccessSwitchHall1', [SwitchController::class, 'PingAccessSwitchHall1'])->name('PingAccessSwitchHall1');
+  Route::get('PingAccessSwitchWorkshop', [SwitchController::class, 'PingAccessSwitchWorkshop'])->name('PingAccessSwitchWorkshop');
+  Route::get('PingAccessSwitchHall2', [SwitchController::class, 'PingAccessSwitchHall2'])->name('PingAccessSwitchHall2');
+  Route::get('PingAccessSwitchHall3', [SwitchController::class, 'PingAccessSwitchHall3'])->name('PingAccessSwitchHall3');
+  Route::get('PingAccessSwitchSmallOfficeArea1', [SwitchController::class, 'PingAccessSwitchSmallOfficeArea1'])->name('PingAccessSwitchSmallOfficeArea1');
+  Route::get('PingAccessSwitchSmallOfficeArea2', [SwitchController::class, 'PingAccessSwitchSmallOfficeArea2'])->name('PingAccessSwitchSmallOfficeArea2');
+  Route::get('PingAccessSwitchSecurityFront', [SwitchController::class, 'PingAccessSwitchSecurityFront'])->name('PingAccessSwitchSecurityFront');
+  Route::get('PingAccessSwitchSecuritySide', [SwitchController::class, 'PingAccessSwitchSecuritySide'])->name('PingAccessSwitchSecuritySide');
+  Route::get('PingServerFarmSwitch', [SwitchController::class, 'PingServerFarmSwitch'])->name('PingServerFarmSwitch');
+  Route::get('PingWANDistributionSwitchISPCyberplus', [SwitchController::class, 'PingWANDistributionSwitchISPCyberplus'])->name('PingWANDistributionSwitchISPCyberplus');
+  Route::get('PingWANDistributionSwitchISPLinknet', [SwitchController::class, 'PingWANDistributionSwitchISPLinknet'])->name('PingWANDistributionSwitchISPLinknet');
   
   // GET API FIREWALL
   Route::get('CurrentRAMUsage', [FirewallController::class, 'CurrentRAMUsage'])->name('CurrentRAMUsage');
