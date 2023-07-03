@@ -24,6 +24,10 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
+      @if(session('error'))
+        <div class="alert alert-danger">{{ session('error') }}</div>
+      @endif
+      
       <p class="login-box-msg">Sign in to start your session</p>
 
       <form action="{{ route('login') }}" method="post">
@@ -45,7 +49,7 @@
           </div>
         </div>
           <!-- /.col -->
-          <div class="col-4">
+          <div class="col-12">
             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
           </div>
           <!-- /.col -->
@@ -66,3 +70,4 @@
 <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
 </body>
 </html>
+
