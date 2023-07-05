@@ -25,11 +25,8 @@
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                             <i class="fas fa-user-plus"></i> Add Users
                         </button>
-
-
                     </div>
                     <div class="card">
-
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
@@ -47,27 +44,29 @@
                                     @endphp
                                     @foreach ($user as $data)
                                         <tr>
-                                            <th>{{ $no++ }}</th>
-                                            <th>{{ $data->name }}</th>
-                                            <th>{{ $data->email }}</th>
-                                            <th>
+                                            <td>{{ $no++ }}</td>
+                                            <td>{{ $data->name }}</td>
+                                            <td>{{ $data->email }}</td>
+                                            <td>
                                                 <a class="btn btn-warning" data-toggle="modal"
                                                     data-target="#exampleModal{{ $data->id }}">Edit</a>
-                                                    
+
                                                 <a class="btn btn-danger"
                                                     href="{{ route('admin.user.destroy',$data->id) }}"
                                                     onclick="event.preventDefault();
-                                        document.getElementById('logout-destroy').submit();">
-                                                    <span> Delete</span>
-                                                    <form id="logout-destroy" action="{{ route('admin.user.destroy',$data->id) }}" method="POST"
-                                                        style="display: none;">
+                                                             document.getElementById('logout-destroy-{{ $data->id }}').submit();">
+                                                    <span>Delete</span>
+                                                    <form id="logout-destroy-{{ $data->id }}"
+                                                        action="{{ route('admin.user.destroy',$data->id) }}"
+                                                        method="POST" style="display: none;">
                                                         @csrf
                                                         @method('delete')
                                                     </form>
                                                 </a>
-                                            </th>
+                                            </td>
                                         </tr>
                                     @endforeach
+                                </tbody>
                             </table>
                         </div>
                         <!-- /.card-body -->
@@ -97,9 +96,7 @@
                         <div class="form-group">
                             <label for="">Name</label>
                             <input type="text" name="name"
-                                class="form-control @error('name') is-invalid
-                            
-                        @enderror"
+                                class="form-control @error('name') is-invalid @enderror"
                                 placeholder="Name" required>
                             @error('name')
                                 {{ $message }}
@@ -108,16 +105,15 @@
                         <div class="form-group">
                             <label for="">Email</label>
                             <input type="email" name="email"
-                                class="form-control  @error('name') is-invalid
-                        @enderror"
+                                class="form-control  @error('email') is-invalid @enderror"
                                 placeholder="Email" required>
-                            @error('name')
+                            @error('email')
                                 {{ $message }}
                             @enderror
                         </div>
                         <div class="form-group">
                             <label for="">Password</label>
-                            <input type="text" name="password" class="form-control" placeholder="Password" required>
+                            <input type="password" name="password" class="form-control" placeholder="Password" required>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Submit</button>
@@ -148,9 +144,7 @@
                             <div class="form-group">
                                 <label for="">Name</label>
                                 <input type="text" name="name"
-                                    class="form-control @error('name') is-invalid
-                            
-                        @enderror"
+                                    class="form-control @error('name') is-invalid @enderror"
                                     placeholder="Name" value="{{ $update->name }}" required>
                                 @error('name')
                                     {{ $message }}
@@ -159,16 +153,15 @@
                             <div class="form-group">
                                 <label for="">Email</label>
                                 <input type="email" name="email"
-                                    class="form-control  @error('name') is-invalid
-                        @enderror"
+                                    class="form-control  @error('email') is-invalid @enderror"
                                     value="{{ $update->email }}" placeholder="Email" required>
-                                @error('name')
+                                @error('email')
                                     {{ $message }}
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label for="">Password</label>
-                                <input type="text" name="password" class="form-control" placeholder="Password">
+                                <input type="password" name="password" class="form-control" placeholder="Password">
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-warning">Update</button>
@@ -180,6 +173,7 @@
         </div>
     @endforeach
 @endsection
+
 @section('script')
     <!-- DataTables  & Plugins -->
     <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>

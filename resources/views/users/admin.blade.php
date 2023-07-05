@@ -25,11 +25,8 @@
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                             <i class="fas fa-user-plus"></i> Add Admin
                         </button>
-
-
                     </div>
                     <div class="card">
-
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
@@ -46,27 +43,30 @@
                                         $no = 1;
                                     @endphp
                                     @foreach ($admin as $data)
-                                        <tr>
-                                            <th>{{ $no++ }}</th>
-                                            <th>{{ $data->name }}</th>
-                                            <th>{{ $data->email }}</th>
-                                            <th>
-                                                <a class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#exampleModal{{ $data->id }}">Edit</a>
-                                                <a class="btn btn-danger"
-                                                    href="{{ route('admin.admin.destroy',$data->id) }}"
-                                                    onclick="event.preventDefault();
-                                        document.getElementById('logout-destroy').submit();">
-                                                    <span> Delete</span>
-                                                    <form id="logout-destroy" action="{{ route('admin.admin.destroy',$data->id) }}" method="POST"
-                                                        style="display: none;">
-                                                        @csrf
-                                                        @method('delete')
-                                                    </form>
-                                                </a>
-                                            </th>
-                                        </tr>
-                                    @endforeach
+                                    <tr>
+                                        <td>{{ $no++ }}</td>
+                                        <td>{{ $data->name }}</td>
+                                        <td>{{ $data->email }}</td>
+                                        <td>
+                                            <a class="btn btn-warning" data-toggle="modal"
+                                                data-target="#exampleModal{{ $data->id }}">Edit</a>
+
+                                            <a class="btn btn-danger"
+                                                href="{{ route('admin.admin.destroy',$data->id) }}"
+                                                onclick="event.preventDefault();
+                                                         document.getElementById('logout-destroy-{{ $data->id }}').submit();">
+                                                <span>Delete</span>
+                                                <form id="logout-destroy-{{ $data->id }}"
+                                                    action="{{ route('admin.admin.destroy',$data->id) }}"
+                                                    method="POST" style="display: none;">
+                                                    @csrf
+                                                    @method('delete')
+                                                </form>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                
                             </table>
                         </div>
                         <!-- /.card-body -->
@@ -116,7 +116,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Password</label>
-                            <input type="text" name="password" class="form-control" placeholder="Password" required>
+                            <input type="password" name="password" class="form-control" placeholder="Password" required>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Submit</button>
