@@ -569,7 +569,7 @@
                                 display: true,
                                 title: {
                                     display: false,
-                                    text: 'Value (Mbps)'
+                                    text: 'Value (%)'
                                 },
                                 ticks: {
                                     suggestedMin: 0,
@@ -692,7 +692,12 @@
                             },
                             y: {
                                 display: true,
+                                title: {
+                                    display: false,
+                                    text: 'Value (%)'
+                                },
                                 ticks: {
+
                                     suggestedMin: 0,
                                     callback: function(value, index, values) {
                                         return value + " %";

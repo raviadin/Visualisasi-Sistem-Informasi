@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header" style="padding: 5px">
 
-                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping Core Switch</h6>
+                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping Loss Core Switch</h6>
                     </div>
                     <div class="card-body">
                         <!-- Tampilkan chart di sini dengan menggunakan data riwayat yang sesuai -->
@@ -23,16 +23,16 @@
                 // Ambil data yang dikirim dari kontroler
                 var chartData = {!! json_encode($chartData) !!};
 
-                // Fungsi untuk mengonversi nilai menjadi megabit per detik (Mbps)
-                function convertToMs(value) {
-                    var msValue = value * 1000;
-                    return msValue;
+                // Fungsi untuk mengonversi nilai menjadi percent (Mbps)
+                function convertToPercent(value) {
+                    var percentValue = value;
+                    return percentValue;
                 }
 
-                // Konversi nilai pada datasets menjadi megabit per detik (Mbps)
+                // Konversi nilai pada datasets menjadi percent (Mbps)
                 for (var i = 0; i < chartData.length; i++) {
                     for (var j = 0; j < chartData[i].data.length; j++) {
-                        chartData[i].data[j] = convertToMs(chartData[i].data[j]);
+                        chartData[i].data[j] = convertToPercent(chartData[i].data[j]);
                     }
                 }
 
@@ -78,13 +78,14 @@
                                 display: true,
                                 title: {
                                     display: false,
-                                    text: 'Value (ms)'
+                                    text: 'Value (%)'
                                 },
                                 ticks: {
                                     callback: function(value, index, values) {
-                                        return value + " ms";
+                                        return value + " %";
                                     }
-                                }
+                                },
+                                min: 0
                             }
                         }
                     }
@@ -114,7 +115,7 @@
 
                             for (var i = 0; i < response.length; i++) {
                                 myChart.data.datasets[i].data = response[i].values.reverse().map(function(value) {
-                                    return convertToMs(value);
+                                    return convertToPercent(value);
                                 });
                             }
 
@@ -136,7 +137,7 @@
                 <div class="card">
                     <div class="card-header" style="padding: 5px">
 
-                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping Access Switch Main Office </h6>
+                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping Loss Access Switch Main Office </h6>
                     </div>
                     <div class="card-body">
                         <!-- Tampilkan chart di sini dengan menggunakan data riwayat yang sesuai -->
@@ -148,18 +149,18 @@
                 // Ambil data yang dikirim dari kontroler
                 var chartData1 = {!! json_encode($chartData1) !!};
 
-                // Fungsi untuk mengonversi nilai menjadi megabit per detik (Ms)
-                function convertToMs(value) {
+                // Fungsi untuk mengonversi nilai menjadi percent (%)
+                function convertToPercent(value) {
 
-                    var msValue = value *1000;
-                    return msValue;
+                    var percentValue = value;
+                    return percentValue;
 
                 }
 
-                // Konversi nilai pada datasets menjadi megabit per detik (Ms)
+                // Konversi nilai pada datasets menjadi percent (%)
                 for (var i = 0; i < chartData1.length; i++) {
                     for (var j = 0; j < chartData1[i].data.length; j++) {
-                        chartData1[i].data[j] = convertToMs(chartData1[i].data[j]);
+                        chartData1[i].data[j] = convertToPercent(chartData1[i].data[j]);
                     }
                 }
 
@@ -205,13 +206,14 @@
                                 display: true,
                                 title: {
                                     display: false,
-                                    text: 'Value (ms)'
+                                    text: 'Value (%)'
                                 },
                                 ticks: {
                                     callback: function(value, index, values) {
-                                        return value + " ms";
+                                        return value + " %";
                                     }
-                                }
+                                },
+                                min: 0
                             }
                         }
                     }
@@ -241,7 +243,7 @@
 
                             for (var i = 0; i < response.length; i++) {
                                 myChart1.data.datasets[i].data = response[i].values.reverse().map(function(value) {
-                                    return convertToMs(value);
+                                    return convertToPercent(value);
                                 });
                             }
 
@@ -263,7 +265,7 @@
                 <div class="card">
                     <div class="card-header" style="padding: 5px">
 
-                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping Access Switch Hall 1 </h6>
+                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping Loss Access Switch Hall 1 </h6>
                     </div>
                     <div class="card-body">
                         <!-- Tampilkan chart di sini dengan menggunakan data riwayat yang sesuai -->
@@ -275,18 +277,18 @@
                 // Ambil data yang dikirim dari kontroler
                 var chartData2 = {!! json_encode($chartData2) !!};
 
-                // Fungsi untuk mengonversi nilai menjadi megabit per detik (Ms)
-                function convertToMs(value) {
+                // Fungsi untuk mengonversi nilai menjadi percent (%)
+                function convertToPercent(value) {
 
-                    var msValue = value *1000;
-                    return msValue;
+                    var percentValue = value;
+                    return percentValue;
 
                 }
 
-                // Konversi nilai pada datasets menjadi megabit per detik (Ms)
+                // Konversi nilai pada datasets menjadi percent (%)
                 for (var i = 0; i < chartData2.length; i++) {
                     for (var j = 0; j < chartData2[i].data.length; j++) {
-                        chartData2[i].data[j] = convertToMs(chartData2[i].data[j]);
+                        chartData2[i].data[j] = convertToPercent(chartData2[i].data[j]);
                     }
                 }
 
@@ -332,13 +334,14 @@
                                 display: true,
                                 title: {
                                     display: false,
-                                    text: 'Value (ms)'
+                                    text: 'Value (%)'
                                 },
                                 ticks: {
                                     callback: function(value, index, values) {
-                                        return value + " ms";
+                                        return value + " %";
                                     }
-                                }
+                                },
+                                min: 0
                             }
                         }
                     }
@@ -367,7 +370,7 @@
 
                             for (var i = 0; i < response.length; i++) {
                                 myChart2.data.datasets[i].data = response[i].values.reverse().map(function(value) {
-                                    return convertToMs(value);
+                                    return convertToPercent(value);
                                 });
                             }
 
@@ -389,7 +392,7 @@
                 <div class="card">
                     <div class="card-header" style="padding: 5px">
 
-                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping Access Switch Workshop</h6>
+                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping Loss Access Switch Workshop</h6>
                     </div>
                     <div class="card-body">
                         <!-- Tampilkan chart di sini dengan menggunakan data riwayat yang sesuai -->
@@ -401,18 +404,18 @@
                 // Ambil data yang dikirim dari kontroler
                 var chartData3 = {!! json_encode($chartData3) !!};
 
-                // Fungsi untuk mengonversi nilai menjadi megabit per detik (Ms)
-                function convertToMs(value) {
+                // Fungsi untuk mengonversi nilai menjadi percent (%)
+                function convertToPercent(value) {
 
-                    var msValue = value * 1000;
-                    return msValue;
+                    var percentValue = value;
+                    return percentValue;
 
                 }
 
-                // Konversi nilai pada datasets menjadi megabit per detik (Ms)
+                // Konversi nilai pada datasets menjadi percent (%)
                 for (var i = 0; i < chartData3.length; i++) {
                     for (var j = 0; j < chartData3[i].data.length; j++) {
-                        chartData3[i].data[j] = convertToMs(chartData3[i].data[j]);
+                        chartData3[i].data[j] = convertToPercent(chartData3[i].data[j]);
                     }
                 }
 
@@ -458,13 +461,14 @@
                                 display: true,
                                 title: {
                                     display: false,
-                                    text: 'Value (ms)'
+                                    text: 'Value (%)'
                                 },
                                 ticks: {
                                     callback: function(value, index, values) {
-                                        return value + " ms";
+                                        return value + " %";
                                     }
-                                }
+                                },
+                                min: 0
                             }
                         }
                     }
@@ -494,7 +498,7 @@
 
                             for (var i = 0; i < response.length; i++) {
                                 myChart3.data.datasets[i].data = response[i].values.reverse().map(function(value) {
-                                    return convertToMs(value);
+                                    return convertToPercent(value);
                                 });
                             }
 
@@ -517,7 +521,7 @@
                 <div class="card">
                     <div class="card-header" style="padding: 5px">
 
-                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping Access Switch Hall 2</h6>
+                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping Loss Access Switch Hall 2</h6>
                     </div>
                     <div class="card-body">
                         <!-- Tampilkan chart di sini dengan menggunakan data riwayat yang sesuai -->
@@ -529,18 +533,18 @@
                 // Ambil data yang dikirim dari kontroler
                 var chartData4 = {!! json_encode($chartData4) !!};
 
-                // Fungsi untuk mengonversi nilai menjadi megabit per detik (Ms)
-                function convertToMs(value) {
+                // Fungsi untuk mengonversi nilai menjadi percent (%)
+                function convertToPercent(value) {
 
-                    var msValue = value * 1000;
-                    return msValue;
+                    var percentValue = value;
+                    return percentValue;
 
                 }
 
-                // Konversi nilai pada datasets menjadi megabit per detik (Ms)
+                // Konversi nilai pada datasets menjadi percent (%)
                 for (var i = 0; i < chartData4.length; i++) {
                     for (var j = 0; j < chartData4[i].data.length; j++) {
-                        chartData4[i].data[j] = convertToMs(chartData4[i].data[j]);
+                        chartData4[i].data[j] = convertToPercent(chartData4[i].data[j]);
                     }
                 }
 
@@ -586,13 +590,14 @@
                                 display: true,
                                 title: {
                                     display: false,
-                                    text: 'Value (ms)'
+                                    text: 'Value (%)'
                                 },
                                 ticks: {
                                     callback: function(value, index, values) {
-                                        return value + " ms";
+                                        return value + " %";
                                     }
-                                }
+                                },
+                                min: 0
                             }
                         }
                     }
@@ -622,7 +627,7 @@
 
                             for (var i = 0; i < response.length; i++) {
                                 myChart4.data.datasets[i].data = response[i].values.reverse().map(function(value) {
-                                    return convertToMs(value);
+                                    return convertToPercent(value);
                                 });
                             }
 
@@ -643,7 +648,7 @@
                 <div class="card">
                     <div class="card-header" style="padding: 5px">
 
-                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping Access Switch Hall 3</h6>
+                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping Loss Access Switch Hall 3</h6>
                     </div>
                     <div class="card-body">
                         <!-- Tampilkan chart di sini dengan menggunakan data riwayat yang sesuai -->
@@ -655,18 +660,18 @@
                 // Ambil data yang dikirim dari kontroler
                 var chartData5 = {!! json_encode($chartData5) !!};
 
-                // Fungsi untuk mengonversi nilai menjadi megabit per detik (Ms)
-                function convertToMs(value) {
+                // Fungsi untuk mengonversi nilai menjadi percent (%)
+                function convertToPercent(value) {
 
-                    var msValue = value * 1000;
-                    return msValue;
+                    var percentValue = value;
+                    return percentValue;
 
                 }
 
-                // Konversi nilai pada datasets menjadi megabit per detik (Ms)
+                // Konversi nilai pada datasets menjadi percent (%)
                 for (var i = 0; i < chartData5.length; i++) {
                     for (var j = 0; j < chartData5[i].data.length; j++) {
-                        chartData5[i].data[j] = convertToMs(chartData5[i].data[j]);
+                        chartData5[i].data[j] = convertToPercent(chartData5[i].data[j]);
                     }
                 }
 
@@ -712,13 +717,14 @@
                                 display: true,
                                 title: {
                                     display: false,
-                                    text: 'Value (ms)'
+                                    text: 'Value (%)'
                                 },
                                 ticks: {
                                     callback: function(value, index, values) {
-                                        return value + " ms";
+                                        return value + " %";
                                     }
-                                }
+                                },
+                                min: 0
                             }
                         }
                     }
@@ -748,7 +754,7 @@
 
                             for (var i = 0; i < response.length; i++) {
                                 myChart5.data.datasets[i].data = response[i].values.reverse().map(function(value) {
-                                    return convertToMs(value);
+                                    return convertToPercent(value);
                                 });
                             }
 
@@ -770,7 +776,7 @@
                 <div class="card">
                     <div class="card-header" style="padding: 5px">
 
-                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping Access Switch Small Office Area 1</h6>
+                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping Loss Access Switch Small Office Area 1</h6>
                     </div>
                     <div class="card-body">
                         <!-- Tampilkan chart di sini dengan menggunakan data riwayat yang sesuai -->
@@ -782,18 +788,18 @@
                 // Ambil data yang dikirim dari kontroler
                 var chartData6 = {!! json_encode($chartData6) !!};
 
-                // Fungsi untuk mengonversi nilai menjadi megabit per detik (Ms)
-                function convertToMs(value) {
+                // Fungsi untuk mengonversi nilai menjadi percent (%)
+                function convertToPercent(value) {
 
-                    var msValue = value * 1000;
-                    return msValue;
+                    var percentValue = value;
+                    return percentValue;
 
                 }
 
-                // Konversi nilai pada datasets menjadi megabit per detik (Ms)
+                // Konversi nilai pada datasets menjadi percent (%)
                 for (var i = 0; i < chartData6.length; i++) {
                     for (var j = 0; j < chartData6[i].data.length; j++) {
-                        chartData6[i].data[j] = convertToMs(chartData6[i].data[j]);
+                        chartData6[i].data[j] = convertToPercent(chartData6[i].data[j]);
                     }
                 }
 
@@ -839,13 +845,14 @@
                                 display: true,
                                 title: {
                                     display: false,
-                                    text: 'Value (ms)'
+                                    text: 'Value (%)'
                                 },
                                 ticks: {
                                     callback: function(value, index, values) {
-                                        return value + " ms";
+                                        return value + " %";
                                     }
-                                }
+                                },
+                                min: 0
                             }
                         }
                     }
@@ -875,7 +882,7 @@
 
                             for (var i = 0; i < response.length; i++) {
                                 myChart6.data.datasets[i].data = response[i].values.reverse().map(function(value) {
-                                    return convertToMs(value);
+                                    return convertToPercent(value);
                                 });
                             }
 
@@ -897,7 +904,7 @@
                 <div class="card">
                     <div class="card-header" style="padding: 5px">
 
-                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping Access Switch Small Office Area 2</h6>
+                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping Loss Access Switch Small Office Area 2</h6>
                     </div>
                     <div class="card-body">
                         <!-- Tampilkan chart di sini dengan menggunakan data riwayat yang sesuai -->
@@ -909,18 +916,18 @@
                 // Ambil data yang dikirim dari kontroler
                 var chartData7 = {!! json_encode($chartData7) !!};
 
-                // Fungsi untuk mengonversi nilai menjadi megabit per detik (Ms)
-                function convertToMs(value) {
+                // Fungsi untuk mengonversi nilai menjadi percent (%)
+                function convertToPercent(value) {
 
-                    var msValue = value * 1000;
-                    return msValue;
+                    var percentValue = value;
+                    return percentValue;
 
                 }
 
-                // Konversi nilai pada datasets menjadi megabit per detik (Ms)
+                // Konversi nilai pada datasets menjadi percent (%)
                 for (var i = 0; i < chartData7.length; i++) {
                     for (var j = 0; j < chartData7[i].data.length; j++) {
-                        chartData7[i].data[j] = convertToMs(chartData7[i].data[j]);
+                        chartData7[i].data[j] = convertToPercent(chartData7[i].data[j]);
                     }
                 }
 
@@ -966,13 +973,14 @@
                                 display: true,
                                 title: {
                                     display: false,
-                                    text: 'Value (ms)'
+                                    text: 'Value (%)'
                                 },
                                 ticks: {
                                     callback: function(value, index, values) {
-                                        return value + " ms";
+                                        return value + " %";
                                     }
-                                }
+                                },
+                                min: 0
                             }
                         }
                     }
@@ -1002,7 +1010,7 @@
 
                             for (var i = 0; i < response.length; i++) {
                                 myChart7.data.datasets[i].data = response[i].values.reverse().map(function(value) {
-                                    return convertToMs(value);
+                                    return convertToPercent(value);
                                 });
                             }
 
@@ -1024,7 +1032,7 @@
                 <div class="card">
                     <div class="card-header" style="padding: 5px">
 
-                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping Access Switch Security Front</h6>
+                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping Loss Access Switch Security Front</h6>
                     </div>
                     <div class="card-body">
                         <!-- Tampilkan chart di sini dengan menggunakan data riwayat yang sesuai -->
@@ -1036,18 +1044,18 @@
                 // Ambil data yang dikirim dari kontroler
                 var chartData8 = {!! json_encode($chartData8) !!};
 
-                // Fungsi untuk mengonversi nilai menjadi megabit per detik (Ms)
-                function convertToMs(value) {
+                // Fungsi untuk mengonversi nilai menjadi percent (%)
+                function convertToPercent(value) {
 
-                    var msValue = value * 1000;
-                    return msValue;
+                    var percentValue = value;
+                    return percentValue;
 
                 }
 
-                // Konversi nilai pada datasets menjadi megabit per detik (Ms)
+                // Konversi nilai pada datasets menjadi percent (%)
                 for (var i = 0; i < chartData8.length; i++) {
                     for (var j = 0; j < chartData8[i].data.length; j++) {
-                        chartData8[i].data[j] = convertToMs(chartData8[i].data[j]);
+                        chartData8[i].data[j] = convertToPercent(chartData8[i].data[j]);
                     }
                 }
 
@@ -1093,13 +1101,14 @@
                                 display: true,
                                 title: {
                                     display: false,
-                                    text: 'Value (ms)'
+                                    text: 'Value (%)'
                                 },
                                 ticks: {
                                     callback: function(value, index, values) {
-                                        return value + " ms";
+                                        return value + " %";
                                     }
-                                }
+                                },
+                                min: 0
                             }
                         }
                     }
@@ -1129,7 +1138,7 @@
 
                             for (var i = 0; i < response.length; i++) {
                                 myChart8.data.datasets[i].data = response[i].values.reverse().map(function(value) {
-                                    return convertToMs(value);
+                                    return convertToPercent(value);
                                 });
                             }
 
@@ -1151,7 +1160,7 @@
                 <div class="card">
                     <div class="card-header" style="padding: 5px">
 
-                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping Access Switch Security Side</h6>
+                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping Loss Access Switch Security Side</h6>
                     </div>
                     <div class="card-body">
                         <!-- Tampilkan chart di sini dengan menggunakan data riwayat yang sesuai -->
@@ -1163,18 +1172,18 @@
                 // Ambil data yang dikirim dari kontroler
                 var chartData9 = {!! json_encode($chartData9) !!};
 
-                // Fungsi untuk mengonversi nilai menjadi megabit per detik (Ms)
-                function convertToMs(value) {
+                // Fungsi untuk mengonversi nilai menjadi percent (%)
+                function convertToPercent(value) {
 
-                    var msValue = value * 1000;
-                    return msValue;
+                    var percentValue = value;
+                    return percentValue;
 
                 }
 
-                // Konversi nilai pada datasets menjadi megabit per detik (Ms)
+                // Konversi nilai pada datasets menjadi percent (%)
                 for (var i = 0; i < chartData9.length; i++) {
                     for (var j = 0; j < chartData9[i].data.length; j++) {
-                        chartData9[i].data[j] = convertToMs(chartData9[i].data[j]);
+                        chartData9[i].data[j] = convertToPercent(chartData9[i].data[j]);
                     }
                 }
 
@@ -1220,11 +1229,11 @@
                                 display: true,
                                 title: {
                                     display: false,
-                                    text: 'Value (ms)'
+                                    text: 'Value (%)'
                                 },
                                 ticks: {
                                     callback: function(value, index, values) {
-                                        return value + " ms";
+                                        return value + " %";
                                     }
                                 },
                                 min: 0 
@@ -1257,7 +1266,7 @@
 
                             for (var i = 0; i < response.length; i++) {
                                 myChart9.data.datasets[i].data = response[i].values.reverse().map(function(value) {
-                                    return convertToMs(value);
+                                    return convertToPercent(value);
                                 });
                             }
 
@@ -1278,7 +1287,7 @@
                 <div class="card">
                     <div class="card-header" style="padding: 5px">
 
-                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping Server Farm Switch</h6>
+                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping Loss Server Farm Switch</h6>
                     </div>
                     <div class="card-body">
                         <!-- Tampilkan chart di sini dengan menggunakan data riwayat yang sesuai -->
@@ -1290,18 +1299,18 @@
                 // Ambil data yang dikirim dari kontroler
                 var chartData10 = {!! json_encode($chartData10) !!};
 
-                // Fungsi untuk mengonversi nilai menjadi megabit per detik (Ms)
-                function convertToMs(value) {
+                // Fungsi untuk mengonversi nilai menjadi percent (%)
+                function convertToPercent(value) {
 
-                    var msValue = value * 1000;
-                    return msValue;
+                    var percentValue = value;
+                    return percentValue;
 
                 }
 
-                // Konversi nilai pada datasets menjadi megabit per detik (Ms)
+                // Konversi nilai pada datasets menjadi percent (%)
                 for (var i = 0; i < chartData10.length; i++) {
                     for (var j = 0; j < chartData10[i].data.length; j++) {
-                        chartData10[i].data[j] = convertToMs(chartData10[i].data[j]);
+                        chartData10[i].data[j] = convertToPercent(chartData10[i].data[j]);
                     }
                 }
 
@@ -1384,7 +1393,7 @@
 
                             for (var i = 0; i < response.length; i++) {
                                 myChart10.data.datasets[i].data = response[i].values.reverse().map(function(value) {
-                                    return convertToMs(value);
+                                    return convertToPercent(value);
                                 });
                             }
 
@@ -1405,7 +1414,7 @@
                 <div class="card">
                     <div class="card-header" style="padding: 5px">
 
-                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping WAN Distribution Switch ISP Cyberplus</h6>
+                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping Loss WAN Distribution Switch ISP Cyberplus</h6>
                     </div>
                     <div class="card-body">
                         <!-- Tampilkan chart di sini dengan menggunakan data riwayat yang sesuai -->
@@ -1417,18 +1426,18 @@
                 // Ambil data yang dikirim dari kontroler
                 var chartData11 = {!! json_encode($chartData11) !!};
 
-                // Fungsi untuk mengonversi nilai menjadi megabit per detik (Ms)
-                function convertToMs(value) {
+                // Fungsi untuk mengonversi nilai menjadi percent (%)
+                function convertToPercent(value) {
 
-                    var msValue = value * 1000;
-                    return msValue;
+                    var percentValue = value;
+                    return percentValue;
 
                 }
 
-                // Konversi nilai pada datasets menjadi megabit per detik (Ms)
+                // Konversi nilai pada datasets menjadi percent (%)
                 for (var i = 0; i < chartData11.length; i++) {
                     for (var j = 0; j < chartData11[i].data.length; j++) {
-                        chartData11[i].data[j] = convertToMs(chartData11[i].data[j]);
+                        chartData11[i].data[j] = convertToPercent(chartData11[i].data[j]);
                     }
                 }
 
@@ -1474,11 +1483,11 @@
                                 display: true,
                                 title: {
                                     display: false,
-                                    text: 'Value (ms)'
+                                    text: 'Value (%)'
                                 },
                                 ticks: {
                                     callback: function(value, index, values) {
-                                        return value + " ms";
+                                        return value + " %";
                                     }
                                 },
                                 min: 0 
@@ -1511,7 +1520,7 @@
 
                             for (var i = 0; i < response.length; i++) {
                                 myChart11.data.datasets[i].data = response[i].values.reverse().map(function(value) {
-                                    return convertToMs(value);
+                                    return convertToPercent(value);
                                 });
                             }
 
@@ -1532,7 +1541,7 @@
                 <div class="card">
                     <div class="card-header" style="padding: 5px">
 
-                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping WAN Distribution Switch ISP Linknet</h6>
+                        <h6 class="text-center" style="font-size: 14px; margin-bottom: 0;">Ping Loss WAN Distribution Switch ISP Linknet</h6>
                     </div>
                     <div class="card-body">
                         <!-- Tampilkan chart di sini dengan menggunakan data riwayat yang sesuai -->
@@ -1544,18 +1553,18 @@
                 // Ambil data yang dikirim dari kontroler
                 var chartData12 = {!! json_encode($chartData12) !!};
 
-                // Fungsi untuk mengonversi nilai menjadi megabit per detik (Ms)
-                function convertToMs(value) {
+                // Fungsi untuk mengonversi nilai menjadi percent (%)
+                function convertToPercent(value) {
 
-                    var msValue = value * 1000;
-                    return msValue;
+                    var percentValue = value;
+                    return percentValue;
 
                 }
 
-                // Konversi nilai pada datasets menjadi megabit per detik (Ms)
+                // Konversi nilai pada datasets menjadi percent (%)
                 for (var i = 0; i < chartData12.length; i++) {
                     for (var j = 0; j < chartData12[i].data.length; j++) {
-                        chartData12[i].data[j] = convertToMs(chartData12[i].data[j]);
+                        chartData12[i].data[j] = convertToPercent(chartData12[i].data[j]);
                     }
                 }
 
@@ -1601,11 +1610,11 @@
                                 display: true,
                                 title: {
                                     display: false,
-                                    text: 'Value (ms)'
+                                    text: 'Value (%)'
                                 },
                                 ticks: {
                                     callback: function(value, index, values) {
-                                        return value + " ms";
+                                        return value + " %";
                                     }
                                 },
                                 min: 0 
@@ -1638,7 +1647,7 @@
 
                             for (var i = 0; i < response.length; i++) {
                                 myChart12.data.datasets[i].data = response[i].values.reverse().map(function(value) {
-                                    return convertToMs(value);
+                                    return convertToPercent(value);
                                 });
                             }
 

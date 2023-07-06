@@ -24,7 +24,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '64581', // Ganti dengan item ID yang sesuai
+                    'itemid' => '64579', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -83,7 +83,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '71427', // Ganti dengan item ID yang sesuai
+                    'itemid' => '71425', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -142,7 +142,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '60052', // Ganti dengan item ID yang sesuai
+                    'itemid' => '60050', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -201,7 +201,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '64025', // Ganti dengan item ID yang sesuai
+                    'itemid' => '64023', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -260,7 +260,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '72761', // Ganti dengan item ID yang sesuai
+                    'itemid' => '72759', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -319,7 +319,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '61110', // Ganti dengan item ID yang sesuai
+                    'itemid' => '61108', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -379,7 +379,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '63254', // Ganti dengan item ID yang sesuai
+                    'itemid' => '63252', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -439,7 +439,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '63983', // Ganti dengan item ID yang sesuai
+                    'itemid' => '63981', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -498,7 +498,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '62999', // Ganti dengan item ID yang sesuai
+                    'itemid' => '62997', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -557,7 +557,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '63041', // Ganti dengan item ID yang sesuai
+                    'itemid' => '63039', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -616,7 +616,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '65885', // Ganti dengan item ID yang sesuai
+                    'itemid' => '65883', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -675,7 +675,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '64925', // Ganti dengan item ID yang sesuai
+                    'itemid' => '64923', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -735,7 +735,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '65843', // Ganti dengan item ID yang sesuai
+                    'itemid' => '65841', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -803,7 +803,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '64581', // Ganti dengan item ID yang sesuai
+                    'itemid' => '64579', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -884,7 +884,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '71427', // Ganti dengan item ID yang sesuai
+                    'itemid' => '71425', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -964,7 +964,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '60052', // Ganti dengan item ID yang sesuai
+                    'itemid' => '60050', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -1045,7 +1045,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '64025', // Ganti dengan item ID yang sesuai
+                    'itemid' => '64023', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -1126,7 +1126,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '72761', // Ganti dengan item ID yang sesuai
+                    'itemid' => '72759', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -1206,7 +1206,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '61110', // Ganti dengan item ID yang sesuai
+                    'itemid' => '61108', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -1287,7 +1287,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '63254', // Ganti dengan item ID yang sesuai
+                    'itemid' => '63252', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -1368,7 +1368,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '63983', // Ganti dengan item ID yang sesuai
+                    'itemid' => '63981', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -1449,7 +1449,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '62999', // Ganti dengan item ID yang sesuai
+                    'itemid' => '62997', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -1529,7 +1529,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '63041', // Ganti dengan item ID yang sesuai
+                    'itemid' => '63039', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -1609,7 +1609,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '65885', // Ganti dengan item ID yang sesuai
+                    'itemid' => '65883', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -1689,7 +1689,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '64925', // Ganti dengan item ID yang sesuai
+                    'itemid' => '64923', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
@@ -1769,7 +1769,7 @@ class SwitchController extends Controller
             'params' => [
                 'output' => 'extend',
                 'filter' => [
-                    'itemid' => '65843', // Ganti dengan item ID yang sesuai
+                    'itemid' => '65841', // Ganti dengan item ID yang sesuai
                 ],
             ],
             'auth' => $token,
